@@ -56,7 +56,7 @@ $prev[$city] = $city;
 
 $city = 'hobart';
 $title[$city] = 'Hobart';
-$triviatxt[$city] = '<p>Famous for the record breaking MONA musuem. MONA features in all 10 spots of the top 10 things to do. <small>source:&nbsp;Sue Hickey</small></p>';
+$triviatxt[$city] = '<p>Famous for the record breaking MONA museum. MONA features in all 10 spots of the top 10 things to do. <small>source:&nbsp;Sue Hickey</small></p>';
 $rank = $_SESSION[$city];
 $next[$city] = $topcity;
 foreach ($cities as $nextcity) { if ($_SESSION[$nextcity] == ($rank+1)) { $next[$city] = $nextcity; } }
