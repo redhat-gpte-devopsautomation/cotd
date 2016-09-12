@@ -10,6 +10,8 @@ A/B Use Case: Users record top preference using the application. Ater certain pe
 Visit example at http://cotd-spicozzi.rhcloud.com/
 
 # Running on Openshift3
-oc new-project cotd --display-name="City of the day" --description='City of the day'
-oc new-app openshift/php:5.6~https://github.com/<repo>/cotd.git
-oc expose svc cotd
+
+    oc new-project cotd --display-name="City of the day" --description='City of the day'
+    oc new-app openshift/php:5.6~https://github.com/<repo>/cotd.git
+    oc expose svc cotd
+    
