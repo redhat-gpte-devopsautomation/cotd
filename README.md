@@ -36,3 +36,9 @@ Edit the buildconfig:
 You may also wish to enable live reload for php image (don't do this in prod)
 
     oc set env dc/cotd OPCACHE_REVALIDATE_FREQ=0
+
+# Parse the pods running statistics
+
+For now:
+
+    ./parseCotdLogs.pl $(oc get pods | grep cotd | grep Running | awk '{print $1}')
