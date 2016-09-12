@@ -1,4 +1,3 @@
-# cotd
 
 Cat/City of the Day
 
