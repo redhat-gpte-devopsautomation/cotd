@@ -3,6 +3,11 @@
 if (!isset($_SESSION)) { session_start(); }
 include('rank.php');
 
+$_SESSION['favorite'] = $_SERVER['QUERY_STRING'];
+if ($_SESSION['favorite']!=null) {
+	error_log($_SERVER['REMOTE_ADDR']." ". $_SERVER['HTTP_X_FORWARDED_FOR']." --> Favorite is --> ".$_SESSION['favorite']);
+}
+
 $cities = array("adelaide", "melbourne", "sydney", "brisbane", "perth", "hobart");
 
 foreach ($cities as $city) { if ($_SESSION[$city] == 0) { $topcity = $city; } }
