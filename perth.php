@@ -3,10 +3,7 @@
 if (!isset($_SESSION)) { session_start(); }
 include('include/city.php');
 $city = 'perth';
-$_SESSION['favorite'] = $_SERVER['QUERY_STRING'];
-if ($_SESSION['favorite']!=null) {
-	error_log($_SERVER['REMOTE_ADDR']." ". $_SERVER['HTTP_X_FORWARDED_FOR']." --> Favorite is --> ".$_SESSION['favorite']);
-}
+
 ?>
 
 <!DOCTYPE html>
