@@ -18,8 +18,7 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
         $( document ).on( "swiperight", page, function() {
             alert("You have chosen " + $(this).attr("id") + " as your favourite.");
             console.log("Favourite --> " + $(this).attr("id") );
-            // set this back on server side for logging, causes a reload
-            $.mobile.changePage( $( this ).attr( "id" ) + ".php?favorite=" + $(this).attr("id"));
+            location.href=$( this ).attr( "id" ) + ".php?favorite=" + $(this).attr("id");
         });
 
         $( ".control .next", page ).addClass( "ui-disabled" );
