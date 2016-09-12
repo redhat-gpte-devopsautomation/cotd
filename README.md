@@ -14,4 +14,25 @@ Visit example at http://cotd-spicozzi.rhcloud.com/
     oc new-project cotd --display-name="City of the day" --description='City of the day'
     oc new-app openshift/php:5.6~https://github.com/<repo>/cotd.git
     oc expose svc cotd
-    
+
+# Developing on the fly in Openshift3
+
+Edit the buildconfig:
+
+    -- change from Git to binary
+    source:
+      type: Git
+      git:
+        uri: 'https://github.com/eformat/cotd.git'
+      secrets: null
+
+    -- to this
+    source:
+      type: Binary
+
+    -- then build with
+    oc start-build --from-dir=. cotd
+
+You may also wish to enable live reload for php image (don't do this in prod)
+
+    oc set env dc/cotd OPCACHE_REVALIDATE_FREQ=0
