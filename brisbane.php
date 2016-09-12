@@ -28,10 +28,16 @@ if ($_SESSION['favorite']!=null) {
 
 	<div data-role="page" id=<?php echo $city; ?> class="demo-page" data-dom-cache="true" data-theme="a" data-prev=<?php echo $_SESSION['prev_'.$city]; ?> data-next=<?php echo $_SESSION['next_'.$city]; ?> >
 
-	<div data-role="header" data-position="fixed" data-fullscreen="true" data-id="hdr" data-tap-toggle="false">
-		<?php echo "<h1> No. ".($_SESSION['rank_'.$city] + 1)." ".$_SESSION['title_'.$city]."</h1>"; ?>
-    		<a href="index.php" data-ajax="false" data-direction="reverse" data-icon="home" data-iconpos="notext" data-shadow="false" data-icon-shadow="false">Back</a>
-    </div><!-- /header -->
+		<div id="help" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="d">
+					<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+					To navigate, swipe left to cycle though the choices. Swipe right to pick your favourite.
+				</div>
+
+		<div data-role="header" data-position="fixed" data-fullscreen="true" data-id="hdr" data-tap-toggle="false">
+			<?php echo "<h1> No. ".($_SESSION['rank_'.$city] + 1)." ".$_SESSION['title_'.$city]."</h1>"; ?>
+			<a href="index.php" data-ajax="false" data-direction="reverse" data-icon="home" data-iconpos="notext" data-shadow="false" data-icon-shadow="false">Back</a>
+		  <a href="#help" data-rel="popup"  data-role="button" data-iconpos="notext" data-icon="alert" data-iconpos="left" data-mini="true"></a>
+	    </div><!-- /header -->
 
 	<div data-role="content">
 
