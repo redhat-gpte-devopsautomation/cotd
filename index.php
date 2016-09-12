@@ -7,8 +7,8 @@ $cities = array('adelaide', 'melbourne', 'sydney', 'adelaide');
 foreach ($cities as $city) {
   if ($_SESSION[$city] == 0) {
 		$topcity = $city;
-		error_log("Top city is --> ".$topcity);
-	}
+		error_log($_SERVER['REMOTE_ADDR']." ". $_SERVER['HTTP_X_FORWARDED_FOR']." Top city is --> ".$topcity);
+  }
 }
 header( 'Location: '.$topcity.'.php' );
 
