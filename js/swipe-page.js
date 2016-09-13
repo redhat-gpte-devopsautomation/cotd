@@ -15,13 +15,23 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
             $.mobile.changePage( next + ".php", { transition: "slide" });
         });
 
+        var favourite = $(this).attr("id");
         $( document ).on( "swiperight", page, function() {
             alert("You have chosen " + $(this).attr("id") + " as your favourite.");
             console.log("Favourite --> " + $(this).attr("id") );
             location.href=$( this ).attr( "id" ) + ".php?favorite=" + $(this).attr("id");
         });
 
-        $( ".control .next", page ).addClass( "ui-disabled" );
-        $( ".control .prev", page ).addClass( "ui-disabled" );
+        // $( ".control .prev", page ).addClass( "ui-disabled" );
+        // $( ".control .next", page ).addClass( "ui-disabled" );
+        $( ".control .next", page ).on( "click", function() {
+            $.mobile.changePage( next + ".php", { transition: "slide" } );
+        });
+
+        $( ".control .prev", page ).on( "click", function() {
+            alert("You have chosen " + favourite + " as your favourite.");
+            console.log("Favourite --> " + $(this).attr("id") );
+            location.href= favourite + ".php?favorite=" + favourite;
+        });
 
 });
