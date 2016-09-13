@@ -30,7 +30,7 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
 
         $( ".control .prev", page ).on( "click", function() {
             alert("You have chosen " + favourite + " as your favourite.");
-            console.log("Favourite --> " + $(this).attr("id") );
+            console.log("Favourite --> " + favourite );
             location.href= favourite + ".php?favorite=" + favourite;
         });
 
