@@ -32,12 +32,12 @@ $_SESSION['title_hobart'] = 'Hobart Cat';
 
 // Change trivia here
 // Cats Trivia
-$_SESSION['triviatxt_adelaide'] = '<p>I live in Adelaide. My dad plays for the Adelaide Crows. He has a big mullet which I snuggle into when he is asleep. <small>Lord Mayor:&nbsp;Martin Haese</small></p>';
-$_SESSION['triviatxt_melbourne'] = '<p>My house is in Melbourne. I like to go to Philosophy Meetups. My favourite is Descates. He said: I think therefore I cat. <small>Lord Mayor:&nbsp;Robert Doyle</small></p>';
-$_SESSION['triviatxt_sydney'] = '<p>I am from Sydney. I do not go out any more at night since they implemented the lock out laws. <small>Lord Mayor:&nbsp;Clover Moore</small></p>';
-$_SESSION['triviatxt_brisbane'] = '<p>Hello from Brisbane. I love it here because the floods bring fish straight to my door step. <small>Lord Mayor:&nbsp;Graham Quirk</small></p>';
-$_SESSION['triviatxt_perth'] = '<p>I was born in Perth. My parents work FIFO at the mines so I do not get to see them much. <small>Lord Mayor:&nbsp;Lisa Scaffidi</small></p>';
-$_SESSION['triviatxt_hobart'] = '<p>Greetings from Hobart. There is not much to do here so thank goodness for the NBN. <small>Lord Mayor:&nbsp;Sue Hickey</small></p>';
+$_SESSION['triviatxt_adelaide'] = '<p>I live in Adelaide. My dad plays for the Adelaide Crows. He has a big mullet which I snuggle into when he is asleep. <small></small></p>';
+$_SESSION['triviatxt_melbourne'] = '<p>My house is in Melbourne. I like to go to Philosophy Meetups. My favourite is Descates. He said: I think therefore I cat. <small></small></p>';
+$_SESSION['triviatxt_sydney'] = '<p>I am from Sydney. I do not go out any more at night since they implemented the lock out laws. <small></small></p>';
+$_SESSION['triviatxt_brisbane'] = '<p>Hello from Brisbane. I love it here because the floods bring fish straight to my door step. <small></small></p>';
+$_SESSION['triviatxt_perth'] = '<p>I was born in Perth. My parents work FIFO at the mines so I do not get to see them much. <small></small></p>';
+$_SESSION['triviatxt_hobart'] = '<p>Greetings from Hobart. There is not much to do here so thank goodness for the NBN. <small></small></p>';
 
 // Cities
 // $_SESSION['triviatxt_adelaide'] = '<p>Among most liveable cities in the world. An extraordinary achievement given so few live there. Green credentials backed by policy of frequent random power outages. <small>Lord Mayor:&nbsp;Martin Haese</small></p>';
