@@ -31,7 +31,7 @@ $_SESSION['title_hobart'] = 'Hobart Cat';
 // $_SESSION['title_hobart'] = 'Wet Cat';
 
 // Change trivia here
-// Cats
+// Cats Trivia
 $_SESSION['triviatxt_adelaide'] = '<p>I live in Adelaide. My dad plays for the Adelaide Crows. He has a big mullet which I snuggle into when he is asleep. <small>Lord Mayor:&nbsp;Martin Haese</small></p>';
 $_SESSION['triviatxt_melbourne'] = '<p>My house is in Melbourne. I like to go to Philosophy Meetups. My favourite is Descates. He said: I think therefore I cat. <small>Lord Mayor:&nbsp;Robert Doyle</small></p>';
 $_SESSION['triviatxt_sydney'] = '<p>I am from Sydney. I do not go out any more at night since they implemented the lock out laws. <small>Lord Mayor:&nbsp;Clover Moore</small></p>';
