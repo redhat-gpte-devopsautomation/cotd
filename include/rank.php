@@ -23,6 +23,14 @@ $_SESSION['title_brisbane'] = 'Brisbane Cat';
 $_SESSION['title_perth'] = 'Perth Cat';
 $_SESSION['title_hobart'] = 'Hobart Cat';
 
+//Change page title here
+// $_SESSION['title_adelaide'] = 'Adelaide';
+// $_SESSION['title_melbourne'] = 'Melbourne';
+// $_SESSION['title_sydney'] = 'Sydney';
+// $_SESSION['title_brisbane'] = 'Brisbane';
+// $_SESSION['title_perth'] = 'Perth';
+// $_SESSION['title_hobart'] = 'Hobart';
+
 // $_SESSION['title_adelaide'] = 'Ginger Cat';
 // $_SESSION['title_melbourne'] = 'Prize Cat';
 // $_SESSION['title_sydney'] = 'Birthday Cat';
@@ -39,7 +47,7 @@ $_SESSION['triviatxt_brisbane'] = '<p>Hello from Brisbane. I love it here becaus
 $_SESSION['triviatxt_perth'] = '<p>I was born in Perth. My parents work FIFO at the mines so I do not get to see them much. <small></small></p>';
 $_SESSION['triviatxt_hobart'] = '<p>Greetings from Hobart. There is not much to do here so thank goodness for the NBN. <small></small></p>';
 
-// Cities
+// Cities Trivia
 // $_SESSION['triviatxt_adelaide'] = '<p>Among most liveable cities in the world. An extraordinary achievement given so few live there. Green credentials backed by policy of frequent random power outages. <small>Lord Mayor:&nbsp;Martin Haese</small></p>';
 // $_SESSION['triviatxt_melbourne'] = '<p>Famous for its dark narrow alley ways and cafe culture. When ordering do as the locals do and use the expression: Where is my goddam latte? The barista will love you for it. <small>Lord Mayor:&nbsp;Robert Doyle</small></p>';
 // $_SESSION['triviatxt_sydney'] = '<p>The international city. Features most expensive airport parking in the world. Dine before 8pm to beat the lockout laws. <small>Lord Mayor:&nbsp;Clover Moore</small></p>';
