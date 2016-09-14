@@ -16,12 +16,19 @@ $_SESSION['hobart'] = 5;
 //$_SESSION['darwin'] = 7;
 
 //Change page title here
-$_SESSION['title_adelaide'] = 'Ginger Cat';
-$_SESSION['title_melbourne'] = 'Prize Cat';
-$_SESSION['title_sydney'] = 'Birthday Cat';
-$_SESSION['title_brisbane'] = 'Toilet Cat';
-$_SESSION['title_perth'] = 'Fat Cat';
-$_SESSION['title_hobart'] = 'Wet Cat';
+$_SESSION['title_adelaide'] = 'Adelaide Cat';
+$_SESSION['title_melbourne'] = 'Melbourne Cat';
+$_SESSION['title_sydney'] = 'Sydney Cat';
+$_SESSION['title_brisbane'] = 'Brisbane Cat';
+$_SESSION['title_perth'] = 'Perth Cat';
+$_SESSION['title_hobart'] = 'Hobart Cat';
+
+// $_SESSION['title_adelaide'] = 'Ginger Cat';
+// $_SESSION['title_melbourne'] = 'Prize Cat';
+// $_SESSION['title_sydney'] = 'Birthday Cat';
+// $_SESSION['title_brisbane'] = 'Toilet Cat';
+// $_SESSION['title_perth'] = 'Fat Cat';
+// $_SESSION['title_hobart'] = 'Wet Cat';
 
 // Change trivia here
 // Cats
