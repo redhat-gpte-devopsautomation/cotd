@@ -41,13 +41,13 @@ $_SESSION['title_canberra'] = 'Canberra Cat';
 
 // Change trivia here
 // Cats Trivia
-$_SESSION['triviatxt_adelaide'] = '<p>I live in Adelaide. My dad plays for the Adelaide Crows. He has a big mullet which I snuggle into when he is asleep. <small>My name is Le Cornu. Swipe right and we can watch the footie together. </small></p>';
-$_SESSION['triviatxt_melbourne'] = '<p>My house is in Melbourne. I like to go to Philosophy Meetups. My favourite is Descates. He said: I think therefore I cat. <small>My name is Rialto. Swipe right and we can work through your existential mid-life crisis.</small></p>';
-$_SESSION['triviatxt_sydney'] = '<p>I am from Sydney. I do not go out any more at night since they implemented the lock out laws. <small>My name is Seidler. Swipe right and we can talk about Sydney property prices.</small></p>';
-$_SESSION['triviatxt_brisbane'] = '<p>Hello from Brisbane. I love it here because the floods bring fish straight to my door step. <small>My name is Gabba. Swipe right and we can go fishing together.</small></p>';
-$_SESSION['triviatxt_perth'] = '<p>I was born in Perth. My parents work FIFO at the mines so I do not get to see them much. <small>My name is Cottlesloe. Swipe right and I can stay with you every second week.</small></p>';
-$_SESSION['triviatxt_hobart'] = '<p>Greetings from Hobart. There is not much to do here so thank goodness for the NBN. <small>My name is Mona. Swipe right and we can watch youtube cat videos with broadband.</small></p>';
-$_SESSION['triviatxt_canberra'] = '<p>My post office box is in Canberra. The Government appointed me into a senior position at the Human Rights Commission. <small>My name is Burley. Swipe right and we can obsess over repealing clause 18C together.</small></p>';
+$_SESSION['triviatxt_adelaide'] = '<p>My name is Le Cornu and I live in Adelaide. My dad plays for the Adelaide Crows. He has a big mullet which I snuggle into when he is asleep. <small>Swipe right and we can watch the footie together. </small></p>';
+$_SESSION['triviatxt_melbourne'] = '<p>My name is Rialto and my house is in Melbourne. I like to go to Philosophy Meetups. My favourite is Descates. He said: I think therefore I cat. <small>Swipe right and we can work through your existential mid-life crisis over some wine and cheese.</small></p>';
+$_SESSION['triviatxt_sydney'] = '<p>My name is Seidler and I am from Sydney. I do not go out any more at night since they implemented the lock out laws. <small>Swipe right and we can talk about Sydney property prices.</small></p>';
+$_SESSION['triviatxt_brisbane'] = '<p>My name is Gabba and I am from Brisbane. I love it here because the floods bring fish straight to my door step. <small>Swipe right and we can go fishing together.</small></p>';
+$_SESSION['triviatxt_perth'] = '<p>My name is Cottlesloe and I was born in Perth. My parents work FIFO at the mines so I do not get to see them much. <small>Swipe right and I can stay with you every second week.</small></p>';
+$_SESSION['triviatxt_hobart'] = '<p>My name is Mona and I am in Hobart. There is not much to do here so thank goodness for the NBN. <small>Swipe right and we can watch youtube cat videos using broadband.</small></p>';
+$_SESSION['triviatxt_canberra'] = '<p>My name is Burley and my post office box is in Canberra. The Government appointed me into a senior position at the Human Rights Commission. <small>Swipe right and we can obsess over repealing clause 18C together.</small></p>';
 
 // Cities Trivia
 // $_SESSION['triviatxt_adelaide'] = '<p>Among most liveable cities in the world. An extraordinary achievement given so few live there. Green credentials backed by policy of frequent random power outages. <small>Lord Mayor:&nbsp;Martin Haese</small></p>';
