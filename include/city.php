@@ -8,7 +8,7 @@ if ($_SESSION['favorite']!=null) {
 	error_log($_SERVER['REMOTE_ADDR']." ". $_SERVER['HTTP_X_FORWARDED_FOR']." --> Favorite is --> ".$_SESSION['favorite']);
 }
 
-$cities = array("adelaide", "melbourne", "sydney", "brisbane", "perth", "hobart", "canberra");
+$cities = array("adelaide", "melbourne", "sydney", "brisbane", "perth", "hobart", "canberra", "auckland", "wellington", "christchurch");
 
 foreach ($cities as $city) { if ($_SESSION[$city] == 0) { $topcity = $city; } }
 $lastrank = 0;

@@ -5,8 +5,10 @@
 #brisbane { background-image: url(../images/brisbane.jpg); }
 #perth { background-image: url(../images/perth.jpg); }
 #hobart { background-image: url(../images/hobart.jpg); }
-#darwin { background-image: url(../images/darwin.jpg); }
 #canberra { background-image: url(../images/canberra.jpg); }
+#auckland { background-image: url(../images/auckland.jpg); }
+#wellington { background-image: url(../images/wellington.jpg); }
+#christchurch { background-image: url(../images/christchurch.jpg); }
 
 /* Background settings */
 .demo-page {

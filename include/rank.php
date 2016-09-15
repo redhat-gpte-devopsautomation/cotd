@@ -13,7 +13,9 @@ $_SESSION['brisbane'] = 3;
 $_SESSION['perth'] = 4;
 $_SESSION['hobart'] = 5;
 $_SESSION['canberra'] = 6;
-//$_SESSION['darwin'] = 7;
+$_SESSION['auckland'] = 7;
+$_SESSION['wellington'] = 8;
+$_SESSION['christchurch'] = 9;
 
 //Change page title here
 $_SESSION['title_adelaide'] = 'Adelaide Cat';
@@ -23,6 +25,9 @@ $_SESSION['title_brisbane'] = 'Brisbane Cat';
 $_SESSION['title_perth'] = 'Perth Cat';
 $_SESSION['title_hobart'] = 'Hobart Cat';
 $_SESSION['title_canberra'] = 'Canberra Cat';
+$_SESSION['title_auckland'] = 'Auckland Cat';
+$_SESSION['title_wellington'] = 'Wellington Cat';
+$_SESSION['title_christchurch'] = 'Christchurch Cat';
 
 //Change page title here
 // $_SESSION['title_adelaide'] = 'Adelaide';
@@ -48,6 +53,9 @@ $_SESSION['triviatxt_brisbane'] = '<p>My name is Gabba and I am from Brisbane. I
 $_SESSION['triviatxt_perth'] = '<p>My name is Cottlesloe and I was born in Perth. My parents work FIFO at the mines so I do not get to see them much. <small>Swipe right and I can stay with you every second week.</small></p>';
 $_SESSION['triviatxt_hobart'] = '<p>My name is Mona and I am in Hobart. There is not much to do here so thank goodness for the NBN. <small>Swipe right and we can watch youtube cat videos using broadband.</small></p>';
 $_SESSION['triviatxt_canberra'] = '<p>My name is Burley and my post office box is in Canberra. The Government appointed me into a senior position at the Human Rights Commission. <small>Swipe right and we can obsess over repealing clause 18C together.</small></p>';
+$_SESSION['triviatxt_auckland'] = '<p>My name is Ponsonby and I live in Auckland. I made a satellite launch vehicle using a ball of wool, 3 paper clips and some bees wax. <small>Swipe right and we can build a mud brick metroplis together.</small></p>';
+$_SESSION['triviatxt_wellington'] = '<p>My name is Massey and I am in Wellington. I am sure this is a beautiful city but I have never ventured outside as its always too wet and windy. <small>Swipe right and we can watch TV together.</small></p>';
+$_SESSION['triviatxt_christchurch'] = '<p>My name is Twizel and I from Christchurch. I had a bit role in the Lord of the Rings trilogy but so did everyone else. <small>Swipe right and we can geek out on LOTR trivia for hours on end. </small></p>';
 
 // Cities Trivia
 // $_SESSION['triviatxt_adelaide'] = '<p>Among most liveable cities in the world. An extraordinary achievement given so few live there. Green credentials backed by policy of frequent random power outages. <small>Lord Mayor:&nbsp;Martin Haese</small></p>';
