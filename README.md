@@ -3,10 +3,11 @@ COTD: Cat of the Day
 
 php web application using JQuery Mobile that publishes a list of ordered items. 
 Each item has an image and trivia associated with it.
+Cats are used as a default sample list, but lists of abritary items and length can be used.
 
 # Website
 
-Visit a running example at http://cotd.net.au
+Visit a running example at http://www.cotd.net.au
 This is hosted on OpenShift Online V2
 
 # Configuration
