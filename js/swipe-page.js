@@ -1,37 +1,53 @@
 
-$( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
-        var page = "#" + $( this ).attr( "id" ),
 
-        // Get the filename of the next page that we stored in the data-next attribute
-        next = $( this ).jqmData( "next" ),
-        // Get the filename of the previous page that we stored in the data-prev attribute
-        prev = $( this ).jqmData( "prev" );
+$( document ).on( 'pageinit', "[data-role='page'].demo-page", function() {
+    
+    next = null;
+    prev = null;
+    rating = null;
+    var item = $(this).attr("id");
+    var page = "#" + item;
 
-        // Prefetch the next page
-        //$.mobile.loadPage( next + ".php" );
+    next = $( this ).jqmData( "next" );    
+    prev = $( this ).jqmData( "prev" );    
+    rating = $( this ).jqmData( "rating" );
 
-        // Navigate to next page on swipe left
+    if ( next != null ) {
+
+        // alert("Page="+page+" Next="+next);
+
         $( document ).on( "swipeleft", page, function() {
-            $.mobile.changePage( next + ".php", { transition: "slide" });
+            // pageContainer causing problems
+            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+next, { transition: 'slide' });
+            location.href= "item.php?nextpage="+next;
         });
 
-        var favourite = $(this).attr("id");
-        $( document ).on( "swiperight", page, function() {
-            alert("You have chosen " + $(this).attr("id") + " as your favourite.");
-            console.log("Favourite --> " + $(this).attr("id") );
-            location.href=$( this ).attr( "id" ) + ".php?favorite=" + $(this).attr("id");
+        $( document ).on( "swiperight", page, "[data-role='page'].demo-page", function() {
+            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+next, { transition: 'slide', reverse: 'true' });
+            location.href= "item.php?nextpage="+prev;
         });
 
-        // $( ".control .prev", page ).addClass( "ui-disabled" );
-        // $( ".control .next", page ).addClass( "ui-disabled" );
         $( ".control .next", page ).on( "click", function() {
-            $.mobile.changePage( next + ".php", { transition: "slide" } );
+            location.href= "item.php?nextpage="+next;
         });
 
         $( ".control .prev", page ).on( "click", function() {
-            alert("You have chosen " + favourite + " as your favourite.");
-            console.log("Favourite --> " + favourite );
-            location.href= favourite + ".php?favorite=" + favourite;
+            location.href= "item.php?nextpage="+prev;
         });
+
+        $( ".control .save", page ).on( "click", function() {
+            // alert("You have chosen " + favorite + " as a favorite with " + rating + " hearts.");            
+            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+item+'&favourite='+item+'&rating='+rating, { transition: 'fade' });
+            location.href= 'item.php?nextpage='+item+'&favorite='+item+'&rating='+rating;
+        });
+
+        $( ".control .cancel", page ).on( "click", function() {
+            rating = 0;
+            // alert("You have chosen " + favorite + " as a favorite with " + rating + " hearts.");            
+            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+item+'&favourite='+item+'&rating='+rating, { transition: 'fade' });
+            location.href= 'item.php?nextpage='+item+'&favorite='+item+'&rating='+rating;
+        });
+
+    }
 
 });

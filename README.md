@@ -1,11 +1,13 @@
 
 Cat/City of the Day
 
-Pages ordered by favourites decending based on rank.php
+Items ordered by favourites decending based on rank.php settings
 
 Interface: Swipe right for recording favourite - written as message to console.log Swipe left to scroll choices
 
 A/B Use Case: Users record top preference using the application. Ater certain period, results in console.log are aggregrated. rank.php is edited to reflect results Change in rank.php triggers A/B deployment
+
+V2 allows for unlimited list size and features simplified single page, item.php, view control, centralised user data configuration, and removal of images from css
 
 Visit example at http://cotd-spicozzi.rhcloud.com/
 

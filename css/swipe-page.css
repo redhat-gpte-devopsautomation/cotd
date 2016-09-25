@@ -1,14 +1,3 @@
-/* Set the background image sources */
-#sydney { background-image: url(../images/sydney.jpg); }
-#melbourne { background-image: url(../images/melbourne.jpg); }
-#adelaide { background-image: url(../images/adelaide.jpg); }
-#brisbane { background-image: url(../images/brisbane.jpg); }
-#perth { background-image: url(../images/perth.jpg); }
-#hobart { background-image: url(../images/hobart.jpg); }
-#canberra { background-image: url(../images/canberra.jpg); }
-#auckland { background-image: url(../images/auckland.jpg); }
-#wellington { background-image: url(../images/wellington.jpg); }
-#christchurch { background-image: url(../images/christchurch.jpg); }
 
 /* Background settings */
 .demo-page {
@@ -16,6 +5,7 @@
     background-position: center center;
     background-repeat: no-repeat;
 }
+
 /* Transparent footer */
 .demo-page .ui-footer {
     background: none;
@@ -29,6 +19,13 @@ So we position the buttons from the bottom. */
     bottom: 7px;
     margin: 0;
 }
+
+.like-btn.ui-btn-center {
+    top: auto;
+    bottom: 7px;
+    margin: 0;
+}
+
 /* Custom styling for the trivia source */
 small {
     font-size: .75em;
