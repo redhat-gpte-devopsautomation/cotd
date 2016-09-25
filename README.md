@@ -19,7 +19,7 @@ Add images as required in the images subdirectory with names matching list items
 
 # Logging
 
-Whenever the user rates a list an entry is written to the php log.
+Whenever the user rates an item, an entry is written to the php log.
 These entries can be filtered and then used to test hypotheses regarding user engagement.
 An example entry is as follows:
 
@@ -34,6 +34,7 @@ rank.php is edited to reflect results Change in rank.php triggers A/B deployment
 
 $ docker pull spicozzi/cotd
 $ docker run -d -i -p 8080:80 spicozzi/cotd
+Browser http://localhost:8080
 
 # Running on Openshift3
 
