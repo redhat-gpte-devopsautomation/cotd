@@ -7,8 +7,9 @@ Cats are used as a default sample list, but lists of abritary items and length c
 
 # Website
 
-Visit a running example at http://www.cotd.net.au
-This is hosted on OpenShift Online V2
+A sample running application is hosted on OpenShift Online V2.
+
+    http://www.cotd.net.au
 
 # Configuration
 
