@@ -30,7 +30,7 @@ An example entry is as follows:
 
 To demonstrate AB deployments try the following:
 
-    ## Setup Environment
+    <h2> Setup Environment </h2>
     Fork this Git repo
     Visit https://www.openshift.org/vm/ to create an instance of OpenShift 
 
