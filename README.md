@@ -33,11 +33,25 @@ rank.php is edited to reflect results Change in rank.php triggers A/B deployment
 
     For this Git repo
     Follow the instructions at https://www.openshift.org/vm/ to create an instance of OpenShift 
+
     Use a browser to login to the Console at https://10.2.2.2:8443/console/ using credentials user/user
     Create a project called cotd with description "Cat of the Day"
+
     Visit your Git repo and change the data/selector.php to point to "cats"
     Create a php application called cotd1 and point it to this Git repo
-    Verify that the application functions using http://cotd1-cotd.apps.10.2.2.2.xip.io/item.php
+    Verify that the application functions using http://cotd1-cotd.apps.10.2.2.2.xip.io
+
+    Visit your Git repo and change the data/selector.php to point to "cities"
+    Create a php application called cotd2 and point it to this Git repo
+    Verify that the application functions using http://cotd2-cotd.apps.10.2.2.2.xip.io
+
+    From a terminal window issue an $ oc login https://10.2.2.2:8443 with credentials user/user 
+    Set the project to cotd using $oc project cotd
+    Create a AB route using $ oc set route-backends cotd1 cotd1=50 cotd2=50
+
+    Launch a a different browser and set cookies preferences to "never allow"
+    Open the url http://cotd1-cotd.apps.10.2.2.2.xip.io/item.php
+    Refresh and note changes between cats and cities versions
 
 
 # Running using Docker Toolbox
