@@ -51,7 +51,7 @@ To demonstrate AB deployments try the following:
     Verify the AB 50/50 setting in the cotd project
 
     Launch a a different browser and set cookies preferences to "never allow"
-    Open the url http://cotd1-cotd.apps.10.2.2.2.xip.io/item.php
+    Open the url http://cotd1-cotd.apps.10.2.2.2.xip.io 
     Refresh and note changes between cats and cities versions
 
 
