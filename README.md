@@ -26,7 +26,7 @@ An example entry is as follows:
 
     [Sun Sep 25 09:14:40.037909 2016] [:error] [pid 15] [client 172.17.0.1:46572] <COTD> { "user" : "e299ra835usa88pp19sr25ipg6", items" : [ {"adelaide" : "1"}, {"canberra" : "3"}, ] , "client_ip" : "172.17.0.1",  "sydney_time" : "2016:09:25 19:14:40",  } </COTD>, referer: http://localhost:8080/item.php?nextpage=canberra
 
-# Some Use Cases
+# AB Deployment Example
 
 A/B Use Case: Users record top preference using the application. Ater certain period, results in the php log are aggregdated.
 rank.php is edited to reflect results Change in rank.php triggers A/B deployment
@@ -48,6 +48,8 @@ rank.php is edited to reflect results Change in rank.php triggers A/B deployment
     From a terminal window issue an $ oc login https://10.2.2.2:8443 with credentials user/user 
     Set the project to cotd using $oc project cotd
     Create a AB route using $ oc set route-backends cotd1 cotd1=50 cotd2=50
+    Use a browser to login to the Console at https://10.2.2.2:8443/console/ using credentials user/user
+    Verify the AB 50/50 setting in the cotd project
 
     Launch a a different browser and set cookies preferences to "never allow"
     Open the url http://cotd1-cotd.apps.10.2.2.2.xip.io/item.php
