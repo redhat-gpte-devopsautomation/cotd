@@ -28,8 +28,7 @@ An example entry is as follows:
 
 # AB Deployment Example
 
-A/B Use Case: Users record top preference using the application. Ater certain period, results in the php log are aggregdated.
-rank.php is edited to reflect results Change in rank.php triggers A/B deployment
+To demonstrate AB deployments try the following:
 
     For this Git repo
     Follow the instructions at https://www.openshift.org/vm/ to create an instance of OpenShift 
