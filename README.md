@@ -44,14 +44,17 @@ To demonstrate AB deployments try the following:
     Create a php application called cotd2 and point it to this Git repo
     Verify that the application functions using http://cotd2-cotd.apps.10.2.2.2.xip.io
 
+    Switch to the Applications > Routes tab in the Console
+    Create a route ab pointing to http://ab-cotd.apps.10.2.2.2.xip.io
+
     From a terminal window issue an $ oc login https://10.2.2.2:8443 with credentials user/user 
     Set the project to cotd using $ oc project cotd
-    Create a AB route using $ oc set route-backends cotd1 cotd1=50 cotd2=50
+    Create a AB route using $ oc set route-backends ab cotd1=50 cotd2=50
     Use a browser to login to the Console at https://10.2.2.2:8443/console/ using credentials user/user
     Verify the AB 50/50 setting in the cotd project
 
     Launch a a different browser and set cookies preferences to "never allow"
-    Open the url http://cotd1-cotd.apps.10.2.2.2.xip.io 
+    Open the url http://ab-cotd.apps.10.2.2.2.xip.io 
     Refresh and note changes between cats and cities versions
 
 
