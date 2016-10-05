@@ -45,7 +45,7 @@ To demonstrate AB deployments try the following:
     Verify that the application functions using http://cotd2-cotd.apps.10.2.2.2.xip.io
 
     From a terminal window issue an $ oc login https://10.2.2.2:8443 with credentials user/user 
-    Set the project to cotd using $oc project cotd
+    Set the project to cotd using $ oc project cotd
     Create a AB route using $ oc set route-backends cotd1 cotd1=50 cotd2=50
     Use a browser to login to the Console at https://10.2.2.2:8443/console/ using credentials user/user
     Verify the AB 50/50 setting in the cotd project
