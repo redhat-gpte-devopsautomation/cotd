@@ -31,6 +31,15 @@ An example entry is as follows:
 A/B Use Case: Users record top preference using the application. Ater certain period, results in the php log are aggregdated.
 rank.php is edited to reflect results Change in rank.php triggers A/B deployment
 
+    For this Git repo
+    Follow the instructions at https://www.openshift.org/vm/ to create an instance of OpenShift 
+    Use a browser to login to the Console at https://10.2.2.2:8443/console/ using credentials user/user
+    Create a project called cotd with description "Cat of the Day"
+    Visit your Git repo and change the data/selector.php to point to "cats"
+    Create a php application called cotd1 and point it to this Git repo
+    Verify that the application functions using http://cotd1-cotd.apps.10.2.2.2.xip.io/item.php
+
+
 # Running using Docker Toolbox
 
     $ docker pull spicozzi/cotd
