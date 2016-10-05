@@ -30,7 +30,7 @@ An example entry is as follows:
 
 To demonstrate AB deployments try the following:
 
-    For this Git repo
+    Fork this Git repo
     Follow the instructions at https://www.openshift.org/vm/ to create an instance of OpenShift 
 
     Use a browser to login to the Console at https://10.2.2.2:8443/console/ using credentials user/user
