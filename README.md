@@ -32,7 +32,8 @@ To demonstrate AB deployments try the following:
 
 ## Setup Environment
     Fork this Git repo
-    Visit https://www.openshift.org/vm/ to create an instance of OpenShift 
+    Visit https://www.openshift.org/vm/ to create an virtual machine instance of OpenShift 
+    Alternatively use the $ oc cluster up method described at https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#overview
 
 ## Create Project
     Visit the Console at https://10.2.2.2:8443/console/ using credentials user/user
