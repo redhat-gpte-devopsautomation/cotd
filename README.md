@@ -28,7 +28,7 @@ An example entry is as follows:
 
 # AB Deployment Example
 
-To demonstrate AB deployments try the following:
+To set up and experiment with an A/B deployment scenario, read the blog entry at: https://blog.emergile.com/2016/10/07/ab-deployments-made-easy-with-openshift/  Or alternatively, follow the instructions below:
 
 ## Setup Environment
     Fork this Git repo
