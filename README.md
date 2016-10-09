@@ -28,43 +28,7 @@ An example entry is as follows:
 
 # AB Deployment Example
 
-To set up and experiment with an A/B deployment scenario, read the blog entry at: https://blog.emergile.com/2016/10/07/ab-deployments-made-easy-with-openshift/  Or alternatively, follow the instructions below:
-
-## Setup Environment
-    Fork this Git repo
-    Visit https://www.openshift.org/vm/ to create an virtual machine instance of OpenShift 
-    Alternatively use the $ oc cluster up method described at https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#overview
-
-## Create Project
-    Visit the Console at https://10.2.2.2:8443/console/ using credentials user/user
-    Create a project called cotd with description "Cat of the Day"
-
-## Create A Application
-    Visit your Git repo and change the data/selector.php to point to "cats"
-    Create a php application called cotd1 and point it to this Git repo
-    Verify that the application using http://cotd1-cotd.apps.10.2.2.2.xip.io
-
-## Create B Application
-    Visit your Git repo and change the data/selector.php to point to "cities"
-    Create a php application called cotd2 and point it to this Git repo
-    Verify that the application using http://cotd2-cotd.apps.10.2.2.2.xip.io
-
-## Create AB Route Target
-    Switch to the Applications > Routes tab in the Console
-    Create a route ab pointing to http://ab-cotd.apps.10.2.2.2.xip.io
- 
-## Create AB Routing Rule
-    From a terminal window issue an $ oc login https://10.2.2.2:8443 with credentials user/user 
-    Set the project to cotd using $ oc project cotd
-    Create a AB route using $ oc set route-backends ab cotd1=50 cotd2=50
-    Visit the Console at https://10.2.2.2:8443/console/ using credentials user/user
-    Verify the AB 50/50 setting in the cotd project
-
-## Verify AB Behavior
-    Launch a a different browser and set cookies preferences to "never allow"
-    Open http://ab-cotd.apps.10.2.2.2.xip.io 
-    Refresh and note changes between cats and cities versions
-
+To set up and experiment with an A/B deployment scenario, follow the instructions in the blog entry at: https://blog.emergile.com/2016/10/07/ab-deployments-made-easy-with-openshift/  
 
 # Running using Docker Toolbox
 
