@@ -28,7 +28,7 @@ An example entry is as follows:
 
 # AB Deployment Example
 
-To set up and experiment with an A/B deployment scenario, follow the instructions in the blog entry at: https://blog.emergile.com/2016/10/07/ab-deployments-made-easy-with-openshift/  
+To experiment with an A/B deployment scenario, follow the instructions in the blog entry at: https://blog.emergile.com/2016/10/07/ab-deployments-made-easy-with-openshift/  
 
 # Running using Docker Toolbox
 
