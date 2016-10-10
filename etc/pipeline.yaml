@@ -22,7 +22,7 @@ spec:
   strategy:
     type: JenkinsPipeline
     jenkinsPipelineStrategy:
-      jenkinsfile: "node('maven') {\nstage 'build'\nopenshiftBuild(namespace: 'development', buildConfig: 'cotd', showBuildLogs: 'true')\nstage 'deploy'\nopenshiftDeploy(namespace: 'development', deploymentConfig: 'cotd')\nopenshiftScale(namespace: 'development', deploymentConfig: 'cotd',replicaCount: '2')\n}"
+      jenkinsfile: "node('maven') {\nstage '==>Build'\nopenshiftBuild(namespace: 'development', buildConfig: 'cotd', showBuildLogs: 'true')\nstage '==>Deploy'\nopenshiftDeploy(namespace: 'development', deploymentConfig: 'cotd')\nopenshiftScale(namespace: 'development', deploymentConfig: 'cotd',replicaCount: '2')\n}"
   output:
   resources:
   postCommit:
