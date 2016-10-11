@@ -1,8 +1,7 @@
 <?php
 
-// Select your list theme here
+// Select your list theme here eg cats or cities
 $_SESSION['selector'] = 'cats';
-// $_SESSION['selector'] = 'cities';
 include($_SESSION['selector'].'/rank.php');
 
 ?>
