@@ -2,7 +2,7 @@ apiVersion: v1
 kind: BuildConfig
 metadata:
   name: cats
-  namespace: cotd2
+  namespace: cotdcicd
   selfLink: /oapi/v1/namespaces/cotd2/buildconfigs/cats
   uid: bfb3b0e8-919b-11e6-bbee-16320349863f
   resourceVersion: '30489'
