@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: cats
+  namespace: cotd2
+  selfLink: /oapi/v1/namespaces/cotd2/buildconfigs/cats
+  uid: bfb3b0e8-919b-11e6-bbee-16320349863f
+  resourceVersion: '30489'
+  creationTimestamp: '2016-10-13T23:21:20Z'
+  labels:
+    app: cats
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+spec:
+  triggers:
+    -
+      type: Generic
+      generic:
+        secret: a2b469a0ff0d9be6
+    -
+      type: GitHub
+      github:
+        secret: 5ba6b9497f124e16
+  runPolicy: Serial
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/StefanoPicozzi/cotd'
+      ref: master
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'php:5.6'
+      env:
+        -
+          name: SELECTOR
+          value: cats
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'cats:latest'
+  resources:
+  postCommit:
+status:
+  lastVersion: 0
