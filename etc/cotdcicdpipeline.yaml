@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: cotdcicdpipeline
+  labels:
+    name: cotdcicdpipeline
+  annotations:
+    pipeline.alpha.openshift.io/uses: '[{"name": "cotdcicd", "namespace": "", "kind": "DeploymentConfig"}]'
+spec:
+  triggers:
+    -
+      type: GitHub
+      github:
+        secret: secret101
+    -
+      type: Generic
+      generic:
+        secret: secret101
+  runPolicy: Serial
+  source:
+    type: None
+  strategy:
+    type: JenkinsPipeline
+    jenkinsPipelineStrategy:
+      jenkinsfile: "node('maven') {\nstage '==> Build'\nopenshiftBuild(namespace: 'cotdcicd', buildConfig: 'cats', showBuildLogs: 'true')\n}"
+  output:
+  resources:
+  postCommit:

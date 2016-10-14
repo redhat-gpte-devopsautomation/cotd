@@ -5,13 +5,13 @@ metadata:
     openshift.io/generated-by: OpenShiftWebConsole
   creationTimestamp: null
   labels:
-    app: cats
-  name: cats
+    app: cities
+  name: cities
 spec:
   output:
     to:
       kind: ImageStreamTag
-      name: cats:latest
+      name: cities:latest
   postCommit: {}
   resources: {}
   runPolicy: Serial
@@ -24,7 +24,7 @@ spec:
     sourceStrategy:
       env:
       - name: SELECTOR
-        value: cats
+        value: cities
       from:
         kind: ImageStreamTag
         name: php:5.6
