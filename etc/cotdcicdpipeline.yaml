@@ -22,7 +22,7 @@ spec:
   strategy:
     type: JenkinsPipeline
     jenkinsPipelineStrategy:
-      jenkinsfile: "node('maven') {\nstage '==> Build'\nopenshiftBuild(namespace: 'cotdcicd', buildConfig: 'cats', showBuildLogs: 'true')\n}"
+      jenkinsfile: "node('maven') {\nstage '==> Build'\nopenshiftBuild(namespace: 'development', buildConfig: 'cats', showBuildLogs: 'true')\n}"
   output:
   resources:
   postCommit:
