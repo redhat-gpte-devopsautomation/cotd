@@ -32,10 +32,10 @@ spec:
     type: Source
   triggers:
   - generic:
-      secret: b8269badb66aa605
+      secret: ef14cfcc9a873be0
     type: Generic
   - github:
-      secret: 0547b50966836f1b
+      secret: 10aae8c1b5a475de
     type: GitHub
 status:
   lastVersion: 0
