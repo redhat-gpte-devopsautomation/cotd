@@ -35,6 +35,8 @@ spec:
       \n\nstage '==> Deploy-In-Testing' \n\
       \nopenshiftDeploy(namespace: 'testing', deploymentConfig: 'cats', )\
       \nopenshiftScale(namespace: 'testing', deploymentConfig: 'cats', replicaCount: '2')\
+      \nopenshiftDeploy(namespace: 'testing', deploymentConfig: 'cities', )\
+      \nopenshiftScale(namespace: 'testing', deploymentConfig: 'cities', replicaCount: '2')\
       \n\n}\n"
   output:
   resources:
