@@ -23,22 +23,17 @@ spec:
     type: JenkinsPipeline
     jenkinsPipelineStrategy:
       jenkinsfile: "node('maven') {\n\
-      \nstage '==> Build-In-Development'\n\ 
+      \nstage '==> Build&Deploy-In-Development'\n\ 
       \nopenshiftBuild(verbose: 'true', namespace: 'development', buildConfig: 'cats', showBuildLogs: 'true')\
       \nopenshiftBuild(verbose: 'true', namespace: 'development', buildConfig: 'cities', showBuildLogs: 'true')\
-      \n\nstage '==> Deploy-In-Development'\n\
-      \nopenshiftDeploy(verbose: 'true', namespace: 'development', deploymentConfig: 'cats')\ 
-      \nopenshiftScale(verbose: 'true', namespace: 'development', deploymentConfig: 'cats', replicaCount: '1')\
-      \nopenshiftDeploy(verbose: 'true', namespace: 'development', deploymentConfig: 'cities')\
-      \nopenshiftScale(verbose: 'true', namespace: 'development', deploymentConfig: 'cities', replicaCount: '1')\
       \n\nstage '==> Tag-Image-in-Development'\n\
-      \nopenshiftTag(verbose: 'true', namespace: 'development', sourceStream: 'cats', sourceTag: 'latest', destinationStream: 'cats', destinationTag: 'promoteToQA')\
-      \nopenshiftTag(verbose: 'true', namespace: 'development', sourceStream: 'cities', sourceTag: 'latest', destinationStream: 'cities', destinationTag: 'promoteToQA')\
+      \nopenshiftTag(namespace: 'development', sourceStream: 'cats', sourceTag: 'latest', destinationStream: 'cats', destinationTag: 'promoteQA')\
+      \nopenshiftTag(namespace: 'development', sourceStream: 'cities', sourceTag: 'latest', destinationStream: 'cities', destinationTag: 'promoteQA')\
       \n\nstage '==> Deploy-In-Testing' \n\
       \nopenshiftDeploy(verbose: 'true', namespace: 'testing', deploymentConfig: 'cats', )\
-      \nopenshiftScale(verbose: 'true', namespace: 'testing', deploymentConfig: 'cats', replicaCount: '2')\
+      \nopenshiftScale(namespace: 'testing', deploymentConfig: 'cats', replicaCount: '2')\
       \nopenshiftDeploy(verbose: 'true', namespace: 'testing', deploymentConfig: 'cities', )\
-      \nopenshiftScale(verbose: 'true', namespace: 'testing', deploymentConfig: 'cities', replicaCount: '2')\
+      \nopenshiftScale(namespace: 'testing', deploymentConfig: 'cities', replicaCount: '2')\
       \n\n}\n"
   output:
   resources:
