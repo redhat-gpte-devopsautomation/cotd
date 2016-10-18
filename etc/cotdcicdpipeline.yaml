@@ -24,15 +24,13 @@ spec:
     jenkinsPipelineStrategy:
       jenkinsfile: "node('maven') {\n\
       \nstage '==> Build&Deploy-In-Development'\n\ 
-      \nopenshiftBuild(verbose: 'true', namespace: 'development', buildConfig: 'cats', showBuildLogs: 'true')\
-      \nopenshiftBuild(verbose: 'true', namespace: 'development', buildConfig: 'cities', showBuildLogs: 'true')\
+      \nopenshiftBuild(namespace: 'development', buildConfig: 'cats', showBuildLogs: 'true')\
+      \nopenshiftBuild(namespace: 'development', buildConfig: 'cities', showBuildLogs: 'true')\
       \n\nstage '==> Tag-Image-in-Development'\n\
       \nopenshiftTag(namespace: 'development', sourceStream: 'cats', sourceTag: 'latest', destinationStream: 'cats', destinationTag: 'promoteQA')\
       \nopenshiftTag(namespace: 'development', sourceStream: 'cities', sourceTag: 'latest', destinationStream: 'cities', destinationTag: 'promoteQA')\
       \n\nstage '==> Deploy-In-Testing' \n\
-      \nopenshiftDeploy(verbose: 'true', namespace: 'testing', deploymentConfig: 'cats', )\
       \nopenshiftScale(namespace: 'testing', deploymentConfig: 'cats', replicaCount: '2')\
-      \nopenshiftDeploy(verbose: 'true', namespace: 'testing', deploymentConfig: 'cities', )\
       \nopenshiftScale(namespace: 'testing', deploymentConfig: 'cities', replicaCount: '2')\
       \n\n}\n"
   output:
