@@ -29,7 +29,7 @@ spec:
       \n\nstage '==> Tag-Image-in-Development'\n\
       \nopenshiftTag(namespace: 'development', sourceStream: 'cats', sourceTag: 'latest', destinationStream: 'cats', destinationTag: 'promoteQA')\
       \nopenshiftTag(namespace: 'development', sourceStream: 'cities', sourceTag: 'latest', destinationStream: 'cities', destinationTag: 'promoteQA')\
-      \n\nstage '==> Scale-In-Testing' \n\
+      \n\nstage '==> Deploy&Scale-In-Testing' \n\
       \nopenshiftDeploy(namespace: 'testing', deploymentConfig: 'cats')\
       \nopenshiftDeploy(namespace: 'testing', deploymentConfig: 'cities')\
       \nopenshiftScale(namespace: 'testing', deploymentConfig: 'cats', replicaCount: '2')\
