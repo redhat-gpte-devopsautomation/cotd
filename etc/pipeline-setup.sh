@@ -1,14 +1,21 @@
-oc login -u developer -p developer
 
+oc login -u system:admin
 oc delete project cicd
+sleep 10
 oc delete project development
+sleep 10
 oc delete project testing
-sleep 5
+sleep 10
 
+oc login -u developer -p developer
 oc new-project cicd --display-name='CICD Jenkins' --description='CICD Jenkins'
+sleep 10
 oc new-project development --display-name='Development' --description='Development Environment' 
-oc policy add-role-to-user edit system:serviceaccount:cicd:jenkins -n development 
+sleep 10
 oc new-project testing --display-name='Testing' --description='Testing Environment' 
+sleep 10
+
+oc policy add-role-to-user edit system:serviceaccount:cicd:jenkins -n development 
 oc policy add-role-to-user edit system:serviceaccount:cicd:jenkins -n testing 
 oc policy add-role-to-group system:image-puller system:serviceaccounts:testing -n development
 
@@ -37,7 +44,7 @@ oc project testing
 oc delete dc cats
 oc delete service cats
 oc delete route cats
-oc create dc cats --image=$REGISTRY_IP:5000/development/cats:promoteQA
+oc create dc cats --image=`echo $REGISTRY_IP`:5000/development/cats:promoteQA
 oc deploy cats --cancel
 oc expose dc cats --port=8080
 oc env dc/cats SELECTOR=cats
@@ -48,7 +55,7 @@ oc patch dc/cats -p '{"spec":{"template":{"spec":{"containers":[{"name":"default
 oc delete dc cities
 oc delete service cities
 oc delete route cities
-oc create dc cities --image=$REGISTRY_IP:5000/development/cities:promoteQA
+oc create dc cities --image=`echo $REGISTRY_IP`:5000/development/cities:promoteQA
 oc deploy cities --cancel
 oc expose dc cities --port=8080
 oc env dc/cities SELECTOR=cities
