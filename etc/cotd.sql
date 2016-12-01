@@ -43,11 +43,6 @@ VALUES
 
 INSERT INTO items (name, theme, rank, trivia, created)
 VALUES
-('hobart', 'cats', 6, '<p>My name is Mona and I am in Hobart. There is not much to do here so thank goodness for the NBN. <small>Rate me and we can watch youtube cat videos using broadband.</small></p>',
- NOW());
-
-INSERT INTO items (name, theme, rank, trivia, created)
-VALUES
 ('canberra', 'cats', 7, '<p>My name is Burley and my post office box is in Canberra. The Government appointed me into a senior position at the Human Rights Commission. <small>Rate me and we can obsess over repealing section 18C together.</small></p>',
  NOW());
 
