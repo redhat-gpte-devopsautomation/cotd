@@ -46,14 +46,25 @@ VALUES
 ('hobart', 'cats', 6, '<p>My name is Mona and I am in Hobart. There is not much to do here so thank goodness for the NBN. <small>Rate me and we can watch youtube cat videos using broadband.</small></p>',
  NOW());
 
+INSERT INTO items (name, theme, rank, trivia, created)
+VALUES
+('canberra', 'cats', 7, '<p>My name is Burley and my post office box is in Canberra. The Government appointed me into a senior position at the Human Rights Commission. <small>Rate me and we can obsess over repealing section 18C together.</small></p>',
+ NOW());
 
-'canberra',
-    'auckland',
-    'wellington',
-    'christchurch'
+INSERT INTO items (name, theme, rank, trivia, created)
+VALUES
+('auckland', 'cats', 8, '<p>My name is Ponsonby and I live in Auckland. I made a satellite launch vehicle using a ball of wool, 3 paper clips and a tub of bees wax. <small>Rate me and we can build a mud brick metropolis together.</small></p>',
+ NOW());
+
+INSERT INTO items (name, theme, rank, trivia, created)
+VALUES
+('wellington', 'cats', 9, '<p>My name is Massey and I am in Wellington. I am a contender for Secretary General of the United Nations. <small>Rate me unless you rather it be Kevin Rudd.</small></p>',
+ NOW());
+
+INSERT INTO items (name, theme, rank, trivia, created)
+VALUES
+('christchurch', 'cats', 10, '<p>My name is Twizel and I from Christchurch. I had a bit role in the Lord of the Rings trilogy, but so did everyone else. <small>Rate me and we can geek out on LOTR trivia for hours on end. </small></p>',
+ NOW());
     
 
-        '<p>My name is Burley and my post office box is in Canberra. The Government appointed me into a senior position at the Human Rights Commission. <small>Rate me and we can obsess over repealing section 18C together.</small></p>',
-    '<p>My name is Ponsonby and I live in Auckland. I made a satellite launch vehicle using a ball of wool, 3 paper clips and a tub of bees wax. <small>Rate me and we can build a mud brick metropolis together.</small></p>',
-    '<p>My name is Massey and I am in Wellington. I am a contender for Secretary General of the United Nations. <small>Rate me unless you rather it be Kevin Rudd.</small></p>',
-    '<p>My name is Twizel and I from Christchurch. I had a bit role in the Lord of the Rings trilogy, but so did everyone else. <small>Rate me and we can geek out on LOTR trivia for hours on end. </small></p>'
+                    
