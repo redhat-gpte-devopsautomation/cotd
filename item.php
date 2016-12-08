@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if (! isset( $_SESSION['item']) ) {
+	include('include/selector.php');  
+}
 
 // Get random word
 function getRandomWord($len = 10) {
@@ -28,39 +33,39 @@ function get_client_ip() {
     return $ipaddress;
 }
 
-if(!isset($_SESSION)) { session_start(); }
-
-include('include/item.php');
 parse_str($_SERVER['QUERY_STRING']);
 
-if ( isset($nextpage) ) { $item = $nextpage; } 
-else { $item = $_SESSION['topitem']; }
-
-$itemno = 0;
-$i = 0;
-foreach ($_SESSION['items'] as $iteminlist) {
-	if ($item == $iteminlist) { $itemno = $i; }
-	$i = $i + 1;
+if ( isset($nextpage) ) { 
+	$item = $nextpage;
+} 
+else { 
+	$item = $_SESSION['topitem'];
 }
 
-$ratingsession = $_SESSION['ratings'][$itemno];
-if ( isset($rating) ) { 
-	$_SESSION['ratings'][$itemno] = $rating; 
+// Get index of current item
+$itemno = 0;
+for ( $i=0; $i < sizeof($_SESSION['item']); $i++ ) {
+	if ($item == $_SESSION['item'][$i]['name'] ) { 
+		$itemno = $i; 
+	}
+}
+
+$ratingsession = $_SESSION['item'][$itemno]['rating'];
+if ( isset( $rating ) ) { 
+	$_SESSION['item'][$itemno]['rating'] = $rating; 
 }
 
 // Write item ratings to php log whenever ratings are changed
-if ( isset($favorite) ) {
+if ( isset( $favorite ) ) {
 	$logmsg = '<'. $_SESSION['app'].'> { ';
-  	$i=0;
-	$timezone = 'Australia/Sydney';  
+	$timezone = 'Australia/Sydney';
 	$date = new DateTime('now', new DateTimeZone($timezone));
 	$localtime = $date->format('Y:m:d H:i:s');
- 	$logmsg = $logmsg . '"user" : "' .getRandomWord(10). '", items" : [ ';
-  	foreach ($_SESSION['items'] as $logitem) {
-    	if ($_SESSION['ratings'][$i] > 0 ) {
-      		$logmsg = $logmsg.'{"' .$logitem. '" : "' .$_SESSION['ratings'][$i]. '"}, ';
+ 	$logmsg = $logmsg . '"user" : "' .getRandomWord(10). '", "items" : [ ';
+	for ( $i=0; $i < sizeof($_SESSION['item']); $i++ ) {
+    	if ( $_SESSION['item'][$i]['rating'] > 0 ) {
+      		$logmsg = $logmsg.'{"' .$_SESSION['item'][$i]['name']. '" : "' .$_SESSION['item'][$i]['rating']. '"}, ';
     	}
-    	$i=$i+1;
   	}
 	$logmsg = $logmsg.'] ,';
 	$logmsg = $logmsg.' "client_ip" : "' .get_client_ip(). '", ';
@@ -118,7 +123,7 @@ cache: false
 </head>
 <body>
 
-<div data-role="page" id=<?php echo $item; ?> style="background-image:url( <?php echo 'data/'.$_SESSION['selector'].'/images/'.$item.'.jpg'; ?>);" class="demo-page" data-dom-cache="true" data-theme="a" data-rating=<?php echo $_SESSION['ratings'][$itemno]; ?> data-prev=<?php echo $_SESSION['prev'][$itemno]; ?> data-next=<?php echo $_SESSION['next'][$itemno]; ?> >
+<div data-role="page" id=<?php echo $item; ?> style="background-image:url( <?php echo $_SESSION['item'][$itemno]['filename']; ?> );" class="demo-page" data-dom-cache="true" data-theme="a" data-rating=<?php echo $_SESSION['item'][$itemno]['rating']; ?>  data-prev=<?php echo $_SESSION['item'][$itemno]['prev']; ?> data-next=<?php echo $_SESSION['item'][$itemno]['next']; ?> >
 
 	<div id="help" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="b">
 				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
@@ -126,7 +131,7 @@ cache: false
 			</div>
 
 	<div data-role="header" data-position="fixed" data-fullscreen="true" data-id="hdr" data-tap-toggle="false">
-		<?php echo "<h1> No. ".($_SESSION['rank'][$itemno] + 1)." ".$_SESSION['titles'][$itemno]."</h1>"; ?>
+		<?php echo "<h1> No. ".$_SESSION['item'][$itemno]['rank']." ".$_SESSION['item'][$itemno]['caption']."</h1>"; ?>
 		<a href="index.php" data-ajax="false" data-direction="reverse" data-icon="home" data-iconpos="notext" data-shadow="false" data-icon-shadow="false">Back</a>
 	  <a href="#help" data-rel="popup"  data-role="button" data-iconpos="notext" data-icon="alert" data-iconpos="left" data-mini="true"></a>
     </div><!-- /header -->
@@ -135,7 +140,7 @@ cache: false
 
 		<div id="trivia" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="b">
         	<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-					<?php echo $_SESSION['trivias'][$itemno]; ?>
+					<?php echo $_SESSION['item'][$itemno]['trivia']; ?>
         </div>
 
 	</div><!-- /content -->

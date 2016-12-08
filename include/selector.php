@@ -1,9 +1,8 @@
 <?php
 
-
 $ini_file = '/etc/config/cotd.properties';                                                                                                               
                                                                                                                                                             
-// Select your list theme here eg cats or cities                                                                                                            
+// Determine active theme default to cats                                                                                                         
 if ( $selector = getenv('SELECTOR') ) {                                                                                                                     
     $_SESSION['selector'] = $selector;                                                                                                                      
 } elseif ( file_exists($ini_file) ) {                                                                                                                       
@@ -13,6 +12,17 @@ if ( $selector = getenv('SELECTOR') ) {
     $_SESSION['selector'] = 'cats';                                                                                                                         
 }                                        
 
-include($_SESSION['selector'].'/rank.php');
+// Populate theme using local file or remote REST Service
+if ( $service = getenv('SERVICE') ) {                                                                                                                     
+    include('data/rest.php');
+} else {
+    include('data/'.$_SESSION['selector'].'.php');
+}
+
+// Set up page next and prev
+include('prevnext.php');
+
+// Change App name tag here
+$_SESSION['app'] = 'COTD';
 
 ?>
