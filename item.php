@@ -1,4 +1,12 @@
+<!--
+Author: StefanoPicozzi@gmail.com
+Blog: https://StefanoPicozzi.blog
+GitHub: https://github.com/StefanoPicozzi/cotd.git
+Date: 2016
+-->
+
 <?php
+
 session_start();
 
 if (! isset( $_SESSION['item']) ) {
@@ -57,6 +65,11 @@ if ( isset( $rating ) ) {
 
 // Write item ratings to php log whenever ratings are changed
 if ( isset( $favorite ) ) {
+
+	$_SESSION['name'] = $_SESSION['item'][$itemno]['name'];
+	$_SESSION['rating'] = $_SESSION['item'][$itemno]['rating'];
+	include('include/insertratings.php');
+
 	$logmsg = '<'. $_SESSION['app'].'> { ';
 	$timezone = 'Australia/Sydney';
 	$date = new DateTime('now', new DateTimeZone($timezone));
@@ -127,7 +140,7 @@ cache: false
 
 	<div id="help" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="b">
 				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-				To navigate, swipe left or right to cycle though the choices. The left and right arrow buttons act similarly. Click Trivia to find out more about the item. Rate the item by clicking the Hearts. Click Save to record your rating or Cancel to remove it.
+				To navigate, swipe left or right to cycle though the choices. The left and right arrow buttons act similarly. Click About to find out more about the item. Rate the item by clicking the Hearts. Click Save to record your rating or Cancel to remove it.
 			</div>
 
 	<div data-role="header" data-position="fixed" data-fullscreen="true" data-id="hdr" data-tap-toggle="false">
@@ -168,7 +181,7 @@ cache: false
 		</div>
 
 
-		<a href="#trivia" data-rel="popup" class="trivia-btn ui-btn-right" data-role="button" data-icon="info" data-iconpos="left" data-theme="d" data-mini="true">Trivia</a>
+		<a href="#trivia" data-rel="popup" class="trivia-btn ui-btn-right" data-role="button" data-icon="info" data-iconpos="left" data-theme="d" data-mini="true">About</a>
     </div><!-- /footer -->
 
 </div><!-- /page -->

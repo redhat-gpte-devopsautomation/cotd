@@ -1,3 +1,10 @@
+<!--
+Author: StefanoPicozzi@gmail.com
+Blog: https://StefanoPicozzi.blog
+GitHub: https://github.com/StefanoPicozzi/cotd.git
+Date: 2016
+-->
+
 <?php
 
 // Change item rankings and related attribute data here
