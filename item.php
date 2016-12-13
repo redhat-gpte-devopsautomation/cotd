@@ -140,7 +140,7 @@ cache: false
 
 	<div id="help" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="b">
 				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-				<p>To navigate, swipe left/right or click the left/right arrow buttons. Click About to find out more. Like your favourites by clicking the hearts and pressing Save. The list is reordered from time to time based on the ratings. </p>
+				<p>To navigate, swipe left/right or click the arrow buttons. Click About to find out more. Like your favourites by clicking the hearts and pressing Save. The list is reordered from time to time based on the ratings. </p>
 				<p style='color:silver;font-size:80%;font-style:italic'> Enjoy, StefanoPicozzi@gmail.com</p>			
 				</div>
 
