@@ -140,8 +140,9 @@ cache: false
 
 	<div id="help" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="b">
 				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-				To navigate, swipe left or right to cycle though the choices. The left and right arrow buttons act similarly. Click About to find out more about the item. Rate the item by clicking the Hearts. Click Save to record your rating or Cancel to remove it.
-			</div>
+				<p>To navigate, swipe left/right or click the left/right arrow buttons. Click About to find out more. Like your favourites by clicking the hearts and pressing Save. The list is reorderd from time to time based on the ratings. </p>
+				<p style='color:silver;font-size:80%;font-style:italic'> Enjoy, StefanoPicozzi@gmail.com</p>			
+				</div>
 
 	<div data-role="header" data-position="fixed" data-fullscreen="true" data-id="hdr" data-tap-toggle="false">
 		<?php echo "<h1> No. ".$_SESSION['item'][$itemno]['rank']." ".$_SESSION['item'][$itemno]['caption']."</h1>"; ?>
