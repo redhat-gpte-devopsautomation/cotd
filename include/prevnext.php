@@ -7,9 +7,32 @@ Date: 2016
 
 <?php
 
+$count = sizeof( $_SESSION['item'] );
+// Pretty up the trivia
+for ($i=0; $i < $count; $i++) {
+
+    $trivia = $_SESSION['item'][$i]['trivia'];
+    $triviastart = $trivia;
+    $triviaend = "";
+    $length = strlen($trivia);
+
+    $likepos = strpos($trivia, "Like ");
+    $ratepos = strpos($trivia, "Rate ");
+    if ( $likepos !== false ) {
+        $triviastart = "<p>".substr($trivia, 0, $likepos)."</p>";
+        $triviaend = "<p style='color:silver;font-size:100%;font-style:italic'>".substr($trivia, $likepos, $length-$likepos)."</p>";
+    } else if ( $ratepos !== false ) {
+        $triviastart = "<p>".substr($trivia, 0, $ratepos)."</p>";
+        $triviaend = "<p style='color:silver;font-size:100%;font-style:italic'>".substr($trivia, $ratepos, $length-$likepos)."</p>";
+    }
+
+    $_SESSION['item'][$i]['trivia'] = $triviastart.$triviaend;
+}
+
+
 // Set up step through cycling
 
-$count = sizeof( $_SESSION['item'] );
+
 for ($i=0; $i < $count; $i++) {
     if ( $_SESSION['item'][$i]['rank'] == 1 ) {
         $firstitem = $_SESSION['item'][$i]['name'];
