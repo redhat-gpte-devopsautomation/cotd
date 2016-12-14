@@ -11,6 +11,8 @@ $count = sizeof( $_SESSION['item'] );
 // Pretty up the trivia
 for ($i=0; $i < $count; $i++) {
 
+    $_SESSION['item'][$i]['rating'] = 0;
+
     $trivia = $_SESSION['item'][$i]['trivia'];
     $triviastart = $trivia;
     $triviaend = "";
