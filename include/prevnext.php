@@ -16,7 +16,7 @@ for ($i=0; $i < $count; $i++) {
     $triviaend = "";
     $length = strlen($trivia);
 
-    $likepos = strpos($trivia, "Like ");
+    $likepos = strpos($trivia, "Like me");
     $ratepos = strpos($trivia, "Rate ");
     if ( $likepos !== false ) {
         $triviastart = "<p>".substr($trivia, 0, $likepos)."</p>";
