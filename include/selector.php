@@ -31,8 +31,8 @@ if ( !empty($dbv2) ) {
     $_SESSION['DB'] = 'true';
 }
 
-// Determine active theme default to cats                                                                                                         
-$_SESSION['selector'] = 'cats';
+// Determine active theme default to pets                                                                                              
+$_SESSION['selector'] = 'pets';
 $selector = getenv('SELECTOR');
 
 if ( !empty($selector) ) {                                                                                                                     

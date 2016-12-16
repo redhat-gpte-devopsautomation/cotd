@@ -5,8 +5,10 @@ PHP web application using JQuery Mobile that publishes a list of ordered items.
 Each item has an image and trivia associated with it.
 
 Item lists are organised as themes. The application looks for an environment variable known as SELECTOR to set the theme.
-The default theme is SELECTOR="cats". By default, item content is sourced from the local data directory. 
-If the environment variable SERVICE is set, the application will look for REST service at the IP address.
+The default theme is SELECTOR="pets" using images supplied by my work colleagues. Other themes include "cats" and "cities".
+By default, item image content is sourced from the local data directory. 
+If the environment variable SERVICE is set, the application will look for REST service at the IP address for item meta data.
+MySQL database meta data is also supported, look at include/selector.php for necessary settings.
 
 ## Website
 
