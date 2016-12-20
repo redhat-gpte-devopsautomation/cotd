@@ -25,13 +25,17 @@ try {
         SELECT i.id AS :id, i.name AS :name, SUM(r.rating) AS :total 
         FROM ratings r, items i
         WHERE r.name = i.name
+         AND  r.theme = i.theme
+         AND  i.theme = :theme
         GROUP BY name
         UNION
-        SELECT id AS :id, name AS :name, 0 AS :total
-        FROM items
-        WHERE name NOT IN
-        (SELECT DISTINCT name
-        FROM ratings)
+        SELECT i2.id AS :id, i2.name AS :name, 0 AS :total
+        FROM items i2
+        WHERE i2.theme = :theme
+         AND i2.name NOT IN
+        (SELECT DISTINCT r2.name
+        FROM ratings r2
+        WHERE i2.theme = r2.theme)
         ORDER BY total DESC, id ASC;
     ");
 
