@@ -67,6 +67,11 @@ try {
     header("Location: error.php");
 }
 
+// Sort by ranking total descending
+usort($names, function ($a, $b) {                                                                                                          
+  return -($a['total'] - $b['total']);                                                                                                     
+});                                                                                                                                        
+
 try {
     $dbh = new PDO("mysql:host=$mysql_hostname;port=$mysql_port;dbname=$mysql_dbname", $mysql_username, $mysql_password);
     $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -84,7 +89,7 @@ try {
     $count = sizeof( $names );
     
     for ($i=0; $i < $count; $i++) {
-        $rank = $names[$i]['rank'];
+        $rank = $i+1;
         $name = $names[$i]['name'];
         $stmt -> bindParam(':rank', $rank, PDO::PARAM_STR);
         $stmt -> bindParam(':theme', $theme, PDO::PARAM_STR);
