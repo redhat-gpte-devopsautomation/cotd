@@ -35,7 +35,7 @@ try {
          AND i2.name NOT IN
         (SELECT DISTINCT r2.name
         FROM ratings r2
-        WHERE i2.theme = r2.theme)
+        WHERE r2.theme = :theme)
         ORDER BY total DESC, id ASC;
     ");
 
