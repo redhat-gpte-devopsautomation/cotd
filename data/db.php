@@ -27,7 +27,7 @@ try {
         WHERE r.name = i.name
          AND  r.theme = i.theme
          AND  i.theme = :theme
-        GROUP BY name
+        GROUP BY i.name
         UNION
         SELECT i2.id AS :id, i2.name AS :name, 0 AS :total
         FROM items i2
@@ -36,7 +36,7 @@ try {
         (SELECT DISTINCT r2.name
         FROM ratings r2
         WHERE r2.theme = :theme)
-        ORDER BY total DESC, id ASC;
+        ORDER BY :total DESC, :id ASC;
     ");
 
     $id = 0;
@@ -53,13 +53,18 @@ try {
     $i = 0;
     $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-        $names[$i] = array('name' => $row[0], 'rank' => $i);
+        $names[$i] = array(
+            'name' => $row[1], 
+            'total' => $row[2],
+            'rank' => $i+1
+        );
         $i = $i + 1;
     }
   
 } catch(Exception $e) {
-   $_SESSION['message'] = "Failed to get rank of items. ".$e;
-   header("Location: error.php");
+    error_log("====> Oops ".$e);
+    $_SESSION['message'] = "Failed to get rank of items. ".$e;
+    header("Location: error.php");
 }
 
 try {
@@ -88,8 +93,9 @@ try {
     }
   
 } catch(Exception $e) {
-   $_SESSION['message'] = "Failed to update rank of items. ".$e;
-   header("Location: error.php");
+    error_log("====> Oops ".$e);
+    $_SESSION['message'] = "Failed to update rank of items. ".$e;
+    header("Location: error.php");
 }
 
 try {
@@ -150,8 +156,9 @@ try {
     }
   
 } catch(Exception $e) {
-   $_SESSION['message'] = "Failed to read items. ".$e;
-   header("Location: error.php");
+    error_log("====> Oops ".$e);
+    $_SESSION['message'] = "Failed to read items. ".$e;
+    header("Location: error.php");
 }
 
 ?>
