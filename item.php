@@ -95,7 +95,9 @@ if ( $_SESSION['selector'] == "pets" ) {
 }
 $help = $help." To navigate, swipe left/right or click the arrow buttons.";
 $help = $help." Click About to find out more. Like your favourites by clicking the hearts and pressing Save.";
-$help = $help." Ratings revise the rankings.";
+if ( $_SESSION['DB'] == 'true' ) {
+	$help = $help." Your ratings revise the rankings.";
+}
 $help = $help." Best viewed on a smart phone in portrait mode. </p>";
 $help = $help."<p style='color:silver;font-size:80%;font-style:italic'> Enjoy, StefanoPicozzi@gmail.com</p>";
 

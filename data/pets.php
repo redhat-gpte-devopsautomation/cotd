@@ -13,18 +13,18 @@ Date: 2016
 $_SESSION['item'] = array();
 
 $i = 0;
-$_SESSION['item'][$i]['name'] = 'billy';
-$_SESSION['item'][$i]['caption'] = 'Billy'; 
-$_SESSION['item'][$i]['rank'] = 1;
-$_SESSION['item'][$i]['trivia'] = "Hi, my name is Billy. Look, I know what you are thinking. Rescue dog. More collateral damage from Government anti-greyhound racing policies. But racing does not define me. I am so much more than that. Hang on. Sniff. Rabbit? Like me and support me through my reinvention process.";
-$_SESSION['item'][$i]['filename'] = 'data/images/pets/billy.jpg';
-
-$i = 1;
 $_SESSION['item'][$i]['name'] = 'billie';
 $_SESSION['item'][$i]['caption'] = 'Billie';
-$_SESSION['item'][$i]['rank'] = 2;
+$_SESSION['item'][$i]['rank'] = 1;
 $_SESSION['item'][$i]['trivia'] = "Hi, my name is Billie. So I am going through my own personal journey of self actualization I don't have to share it with you. Stare at my floppy ears. What do I care. Like me I'm my own dog.";
 $_SESSION['item'][$i]['filename'] = 'data/images/pets/billie.jpg';
+
+$i = 1;
+$_SESSION['item'][$i]['name'] = 'billy';
+$_SESSION['item'][$i]['caption'] = 'Billy'; 
+$_SESSION['item'][$i]['rank'] = 2;
+$_SESSION['item'][$i]['trivia'] = "Hi, my name is Billy. Look, I know what you are thinking. Rescue dog. More collateral damage from Government anti-greyhound racing policies. But racing does not define me. I am so much more than that. Hang on. Sniff. Rabbit? Like me and support me through my reinvention process.";
+$_SESSION['item'][$i]['filename'] = 'data/images/pets/billy.jpg';
 
 $i = 2;
 $_SESSION['item'][$i]['name'] = 'tipsy';
