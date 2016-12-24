@@ -87,6 +87,18 @@ if ( isset( $favorite ) ) {
 	error_log($logmsg);
 }
 
+$help = "<p>You are looking at a list of ".$_SESSION['selector'];
+if ( $_SESSION['selector'] == "pets" ) {
+  $help = $help." from amongst my work colleagues.";
+} else {
+  $help = $help. ".";
+}
+$help = $help." To navigate, swipe left/right or click the arrow buttons.";
+$help = $help." Click About to find out more. Like your favourites by clicking the hearts and pressing Save.";
+$help = $help." Ratings revise the rankings.";
+$help = $help." Best viewed on a smart phone in portrait mode. </p>";
+$help = $help."<p style='color:silver;font-size:80%;font-style:italic'> Enjoy, StefanoPicozzi@gmail.com</p>";
+
 ?>
 
 <!DOCTYPE html>
@@ -140,8 +152,7 @@ cache: false
 
 	<div id="help" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="b">
 				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-				<p>You are looking at a list of pets from my work colleagues. To navigate, swipe left/right or click the arrow buttons. Click About to find out more. Like your favourites by clicking the hearts and pressing Save. Ratings revise the rankings. Best viewed on a smart phone in portrait mode. </p>
-				<p style='color:silver;font-size:80%;font-style:italic'> Enjoy, StefanoPicozzi@gmail.com</p>			
+				<?php echo $help; ?>
 				</div>
 
 	<div data-role="header" data-position="fixed" data-fullscreen="true" data-id="hdr" data-tap-toggle="false">
