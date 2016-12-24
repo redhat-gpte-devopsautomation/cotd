@@ -22,19 +22,20 @@ try {
     $dbh = new PDO("mysql:host=$mysql_hostname;port=$mysql_port;dbname=$mysql_dbname", $mysql_username, $mysql_password);
     $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Select the latest aggregated ratings
     $stmt = $dbh -> prepare("
-	INSERT INTO hits
- 	(sessionid, theme) 
-	VALUES
-	(:sessionid, :theme);
+    INSERT INTO hits
+    (sessionid, theme, clientip) 
+    VALUES
+    (:sessionid, :theme, :clientip);
     ");
 
     $sessionid = session_id();
     $theme = $_SESSION['selector'];
+    $clientip = $_SERVER['HTTP_CLIENT_IP']?$_SERVER['HTTP_CLIENT_IP']:($_SERVER['HTTP_X_FORWARDE‌​D_FOR']?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR']);
 
     $stmt -> bindParam(':theme', $theme, PDO::PARAM_STR);
     $stmt -> bindParam(':sessionid', $sessionid, PDO::PARAM_STR);
+    $stmt -> bindParam(':clientip', $clientip, PDO::PARAM_STR);
     $stmt->execute();
   
 } catch(Exception $e) {
