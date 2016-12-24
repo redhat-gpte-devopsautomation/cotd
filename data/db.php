@@ -17,6 +17,33 @@ $mysql_username = $_SESSION['DBUSER'];
 $mysql_dbname   = $_SESSION['DBNAME'];
 $mysql_password = $_SESSION['DBPASSWORD'];
 
+// Insert a hits record
+try {
+    $dbh = new PDO("mysql:host=$mysql_hostname;port=$mysql_port;dbname=$mysql_dbname", $mysql_username, $mysql_password);
+    $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Select the latest aggregated ratings
+    $stmt = $dbh -> prepare("
+	INSERT INTO hits
+ 	(sessionid, theme) 
+	VALUES
+	(:sessionid, :theme);
+    ");
+
+    $sessionid = session_id();
+    $theme = $_SESSION['selector'];
+
+    $stmt -> bindParam(':theme', $theme, PDO::PARAM_STR);
+    $stmt -> bindParam(':sessionid', $sessionid, PDO::PARAM_STR);
+    $stmt->execute();
+  
+} catch(Exception $e) {
+    error_log("====> Oops ".$e);
+    $_SESSION['message'] = "Failed to insert hits. ".$e;
+    header("Location: ../error.php");
+}
+
+// Calculate aggregated ratings
 try {
     $dbh = new PDO("mysql:host=$mysql_hostname;port=$mysql_port;dbname=$mysql_dbname", $mysql_username, $mysql_password);
     $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -64,7 +91,7 @@ try {
 } catch(Exception $e) {
     error_log("====> Oops ".$e);
     $_SESSION['message'] = "Failed to get rank of items. ".$e;
-    header("Location: error.php");
+    header("Location: ../error.php");
 }
 
 // Sort by ranking total descending
@@ -103,6 +130,7 @@ try {
     header("Location: error.php");
 }
 
+// Populate SESSION array
 try {
     $dbh = new PDO("mysql:host=$mysql_hostname;port=$mysql_port;dbname=$mysql_dbname", $mysql_username, $mysql_password);
     $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -163,7 +191,7 @@ try {
 } catch(Exception $e) {
     error_log("====> Oops ".$e);
     $_SESSION['message'] = "Failed to read items. ".$e;
-    header("Location: error.php");
+    header("Location: ../error.php");
 }
 
 ?>
