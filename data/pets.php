@@ -16,7 +16,7 @@ $i = 0;
 $_SESSION['item'][$i]['name'] = 'billie';
 $_SESSION['item'][$i]['caption'] = 'Billie';
 $_SESSION['item'][$i]['rank'] = 1;
-$_SESSION['item'][$i]['trivia'] = "Hi, my name is Billie. So I am going through my own personal journey of self actualization I don't have to share it with you. Stare at my floppy ears. What do I care. Like me I'm my own dog.";
+$_SESSION['item'][$i]['trivia'] = "Hi, my name is Billie. So I am going through my own personal journey of self actualization. I don't have to share it with you. Stare at my floppy ears. What do I care. Like me I'm my own dog.";
 $_SESSION['item'][$i]['filename'] = 'data/images/pets/billie.jpg';
 
 $i = 1;
