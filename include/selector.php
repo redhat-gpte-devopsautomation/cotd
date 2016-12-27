@@ -9,11 +9,12 @@ Date: 2016
 
 $ini_file = '/etc/config/cotd.properties';  
 
-// If DB not set by client then test if OpenShift Online V2 or V3 Trial
-if ( empty($_SESSION['DBHOST']) ) {
+$dbv2 = getenv('OPENSHIFT_MYSQL_DB_HOST');
+$dbv3 = getenv('DBHOST');
+$dbhost = $_SESSION['DBHOST'];
 
-    $dbv2 = getenv('OPENSHIFT_MYSQL_DB_HOST');
-    $dbv3 = getenv('DBHOST');
+// If DB not set by client then test if OpenShift Online V2 or V3 sidecar
+if ( empty($dbhost) ) {
 
     if ( !empty($dbv2) ) {
         $_SESSION['DBHOST'] = getenv('OPENSHIFT_MYSQL_DB_HOST');
@@ -32,15 +33,17 @@ if ( empty($_SESSION['DBHOST']) ) {
         $_SESSION['V3'] = 'true';
         $_SESSION['DB'] = 'true';
     }
+
 } else {
     $_SESSION['V3'] = 'true';
     $_SESSION['DB'] = 'true';
 }
 
+$selector = getenv('SELECTOR');
 // if theme not set by client then determine active theme default to pets
 if ( empty($_SESSION['SELECTOR']) ) { 
 
-    if ( !empty(getenv('SELECTOR')) ) {
+    if ( !empty($selector) ) {
         $_SESSION['SELECTOR'] = getenv('SELECTOR');
     } elseif ( file_exists($ini_file) ) {
         $ini_array = parse_ini_file($ini_file);     
@@ -51,7 +54,7 @@ if ( empty($_SESSION['SELECTOR']) ) {
         $_SESSION['SELECTOR'] = 'pets';
     }
 
-}                                        
+}                                     
 
 if ( !empty($_SESSION['service']) ) {
     $service = $_SESSION['service'];
@@ -59,7 +62,7 @@ if ( !empty($_SESSION['service']) ) {
     $service = getenv('SERVICE');
 }
 
-// Populate theme using precendence testing for REST then DB then local file
+// Populate theme using precedence testing for REST then DB then local file
 if ( !empty($service) ) {
     include('data/rest.php');
 } elseif ( $_SESSION['DB'] == 'true' ) {
