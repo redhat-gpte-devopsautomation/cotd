@@ -41,7 +41,7 @@ try {
 } catch(Exception $e) {
     error_log("====> Oops ".$e);
     $_SESSION['message'] = "Failed to insert hits. ".$e;
-    header("Location: ../error.php");
+    header('Location: /error.php');
 }
 
 // Calculate aggregated ratings
@@ -96,7 +96,7 @@ try {
 } catch(Exception $e) {
     error_log("====> Oops ".$e);
     $_SESSION['message'] = "Failed to get rank of items. ".$e;
-    header("Location: /error.php");
+    header('Location: /error.php');
 }
 
 if ( $sumratings > 0 ) {
@@ -133,7 +133,7 @@ if ( $sumratings > 0 ) {
     } catch(Exception $e) {
         error_log("====> Oops ".$e);
         $_SESSION['message'] = "Failed to update rank of items. ".$e;
-        header("Location: /error.php");
+        header('Location: /error.php');
     }
 }
 
@@ -198,7 +198,7 @@ try {
 } catch(Exception $e) {
     error_log("====> Oops ".$e);
     $_SESSION['message'] = "Failed to read items. ".$e;
-    header("Location: /error.php");
+    header('Location: /error.php');
 }
 
 ?>
