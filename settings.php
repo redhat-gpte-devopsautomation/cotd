@@ -31,6 +31,13 @@ function get_client_ip() {
 }
 
 $selector = $_SESSION['selector'];
+$dbhost = $_SESSION['DBHOST'];
+$dbport = $_SESSION['DBPORT'];
+$dbuser = $_SESSION['DBUSER'];
+$dbpassword = $_SESSION['DBPASSWORD'];
+$dbname = $_SESSION['DBNAME'];
+$service = $_SESSION['SERVICE'];
+$clientip = $_SERVER['HTTP_CLIENT_IP']?$_SERVER['HTTP_CLIENT_IP']:($_SERVER['HTTP_X_FORWARDE‌​D_FOR']?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR']);
 
 ?>
 
@@ -65,12 +72,43 @@ $selector = $_SESSION['selector'];
 	<form id="login" action="settings_submit.php" method="get" rel="external" data-ajax="false">
     	
 		<fieldset data-role="controlgroup">
-        	<legend>Settings</legend>
+        	<legend>Settings for <?php echo $clientip ?> </legend>
                   
         	<div data-role="fieldcontain">
             	<label for="selector" style="text-align:right">SELECTOR:</label>
         		<input type="text" name="selector" id="selector" class="selector" value="<?php echo $selector; ?>" data-mini="true" >
         	</div>
+
+        	<div data-role="fieldcontain">
+            	<label for="dbhost" style="text-align:right">DBHOST:</label>
+        		<input type="text" name="dbhost" id="dbhost" class="dbhost" value="<?php echo $dbhost; ?>" data-mini="true" >
+        	</div>
+
+        	<div data-role="fieldcontain">
+            	<label for="dbport" style="text-align:right">DBPORT:</label>
+        		<input type="text" name="dbport" id="dbport" class="dbport" value="<?php echo $dbport; ?>" data-mini="true" >
+        	</div>
+
+        	<div data-role="fieldcontain">
+            	<label for="dbuser" style="text-align:right">DBUSER:</label>
+        		<input type="text" name="dbuser" id="dbuser" class="dbuser" value="<?php echo $dbuser; ?>" data-mini="true" >
+        	</div>
+
+        	<div data-role="fieldcontain">
+            	<label for="dbpassword" style="text-align:right">DBPASSWORD:</label>
+        		<input type="text" name="dbpassword" id="dbpassword" class="dbpassword" value="<?php echo $dbpassword; ?>" data-mini="true" >
+        	</div>
+
+        	<div data-role="fieldcontain">
+            	<label for="dbname" style="text-align:right">DBNAME:</label>
+        		<input type="text" name="dbname" id="dbhost" class="dbname" value="<?php echo $dbname; ?>" data-mini="true" >
+        	</div>
+
+        	<div data-role="fieldcontain">
+            	<label for="service" style="text-align:right">SERVICE:</label>
+        		<input type="text" name="service" id="service" class="service" value="<?php echo $service; ?>" data-mini="true" >
+        	</div>
+
 		</fieldset>
 
 		<center>
