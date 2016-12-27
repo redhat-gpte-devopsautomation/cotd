@@ -51,8 +51,10 @@ if ( !empty($service) ) {
     include('data/rest.php');
 } elseif ( $_SESSION['DB'] == 'true' ) {
     include('data/db.php');
-} else {
+} elseif ( file_exists('data/'.$_SESSION['selector'].'.php') ) {
     include('data/'.$_SESSION['selector'].'.php');
+} else {
+    include('data/pets.php');
 }
 
 // Set up page next and prev
