@@ -32,16 +32,17 @@ if ( !empty($dbv2) ) {
 }
 
 // Determine active theme default to pets                                                                                              
-$_SESSION['selector'] = 'pets';
-$selector = getenv('SELECTOR');
-
-if ( !empty($selector) ) {                                                                                                                     
-    $_SESSION['selector'] = $selector;                                                                                                                      
+if ( !empty($_SESSION['selector']) ) { 
+  // Nothing to do
+} elseif ( !empty(getenv('SELECTOR')) ) {                                                                                                                     
+    $_SESSION['selector'] = getenv('SELECTOR');                                                                                                                      
 } elseif ( file_exists($ini_file) ) {                                                                                                                       
     $ini_array = parse_ini_file($ini_file);                                                                                                                 
     $_SESSION['selector'] = $ini_array['selector'];                                                                                                         
 } elseif ( $_SESSION['V2'] == 'true' )  {
-    $_SESSION['selector'] = 'pets'; 
+    $_SESSION['selector'] = 'pets';
+} else {
+    $_SESSION['selector'] = 'pets';
 }                                        
 
 $service = getenv('SERVICE');
