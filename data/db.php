@@ -30,7 +30,7 @@ try {
     ");
 
     $sessionid = session_id();
-    $theme = $_SESSION['selector'];
+    $theme = $_SESSION['SELECTOR'];
     $clientip = $_SERVER['HTTP_CLIENT_IP']?$_SERVER['HTTP_CLIENT_IP']:($_SERVER['HTTP_X_FORWARDE‌​D_FOR']?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR']);
 
     $stmt -> bindParam(':theme', $theme, PDO::PARAM_STR);
@@ -70,7 +70,7 @@ try {
     $id = 0;
     $name = '';
     $total = 0;
-    $theme = $_SESSION['selector'];
+    $theme = $_SESSION['SELECTOR'];
 
     $stmt -> bindParam(':theme', $theme, PDO::PARAM_STR);
     $stmt -> bindParam(':name', $name, PDO::PARAM_STR);
@@ -80,6 +80,7 @@ try {
     $names[] = array();
     $i = 0;
     $stmt->execute();
+
     while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
         $names[$i] = array(
             'name' => $row[1], 
@@ -88,6 +89,7 @@ try {
         );
         $i = $i + 1;
     }
+    $norows = $i;
   
 } catch(Exception $e) {
     error_log("====> Oops ".$e);
@@ -95,40 +97,42 @@ try {
     header("Location: ../error.php");
 }
 
-// Sort by ranking total descending
-usort($names, function ($a, $b) {                                                                                                          
-  return -($a['total'] - $b['total']);                                                                                                     
-});                                                                                                                                        
+if ( $norows > 0 ) {
+    // Sort by ranking total descending
+    usort($names, function ($a, $b) {
+        return -($a['total'] - $b['total']);
+    });
 
-try {
-    $dbh = new PDO("mysql:host=$mysql_hostname;port=$mysql_port;dbname=$mysql_dbname", $mysql_username, $mysql_password);
-    $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+        $dbh = new PDO("mysql:host=$mysql_hostname;port=$mysql_port;dbname=$mysql_dbname", $mysql_username, $mysql_password);
+        $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $dbh -> prepare("
-        UPDATE items
-        SET rank = :rank
-        WHERE theme = :theme
-         AND  name = :name;
-    ");
+        $stmt = $dbh -> prepare("
+            UPDATE items
+            SET rank = :rank
+            WHERE theme = :theme
+            AND  name = :name;
+        ");
 
-    $name = '';
-    $total = 0;
-    $theme = $_SESSION['selector'];
-    $count = sizeof( $names );
+        $name = '';
+        $total = 0;
+        $theme = $_SESSION['SELECTOR'];
+        $count = sizeof( $names );
     
-    for ($i=0; $i < $count; $i++) {
-        $rank = $i+1;
-        $name = $names[$i]['name'];
-        $stmt -> bindParam(':rank', $rank, PDO::PARAM_STR);
-        $stmt -> bindParam(':theme', $theme, PDO::PARAM_STR);
-        $stmt -> bindParam(':name', $name, PDO::PARAM_STR);
-        $stmt->execute();
-    }
+        for ($i=0; $i < $count; $i++) {
+            $rank = $i+1;
+            $name = $names[$i]['name'];
+            $stmt -> bindParam(':rank', $rank, PDO::PARAM_STR);
+            $stmt -> bindParam(':theme', $theme, PDO::PARAM_STR);
+            $stmt -> bindParam(':name', $name, PDO::PARAM_STR);
+            $stmt->execute();
+        }
   
-} catch(Exception $e) {
-    error_log("====> Oops ".$e);
-    $_SESSION['message'] = "Failed to update rank of items. ".$e;
-    header("Location: error.php");
+    } catch(Exception $e) {
+        error_log("====> Oops ".$e);
+        $_SESSION['message'] = "Failed to update rank of items. ".$e;
+        header("Location: ../error.php");
+    }
 }
 
 // Populate SESSION array
@@ -154,7 +158,7 @@ try {
     $caption = '';
     $trivia = '';
     $filename = '';
-    $theme = $_SESSION['selector'];
+    $theme = $_SESSION['SELECTOR'];
 
     $stmt -> bindParam(':theme', $theme, PDO::PARAM_STR);
     $stmt -> bindParam(':name', $name, PDO::PARAM_STR);

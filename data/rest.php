@@ -28,7 +28,7 @@ $response = json_decode($response, true);
 $_SESSION['item'] = array();
 
 // Find theme
-$selector = $_SESSION['selector'];
+$selector = $_SESSION['SELECTOR'];
 $i = 0;
 
 foreach ($response['items'] as $item) {

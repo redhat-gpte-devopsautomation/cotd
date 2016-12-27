@@ -27,7 +27,7 @@ try {
 	;");
 
     $sessionid = session_id();
-    $theme = $_SESSION['selector'];
+    $theme = $_SESSION['SELECTOR'];
     $name = $_SESSION['name'];
     $rating = $_SESSION['rating'];
 

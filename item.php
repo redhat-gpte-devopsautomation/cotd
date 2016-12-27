@@ -87,8 +87,8 @@ if ( isset( $favorite ) ) {
 	error_log($logmsg);
 }
 
-$help = "<p>You are looking at a list of ".$_SESSION['selector'];
-if ( $_SESSION['selector'] == "pets" ) {
+$help = "<p>You are looking at a list of ".$_SESSION['SELECTOR'];
+if ( $_SESSION['SEELCTOR'] == "pets" ) {
   $help = $help." from amongst my work colleagues.";
 } else {
   $help = $help. ".";
