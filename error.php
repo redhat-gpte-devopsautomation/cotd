@@ -38,7 +38,10 @@ cache: false
 <body>
 
 Oops.
+
+<p>
 <?php echo $_SESSION['message']; ?>
+</p>
 
 </body>
 
