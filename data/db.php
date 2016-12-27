@@ -81,12 +81,14 @@ try {
     $i = 0;
     $stmt->execute();
 
+    $sumratings = 0;
     while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
         $names[$i] = array(
             'name' => $row[1], 
             'total' => $row[2],
             'rank' => $i+1
         );
+        $sumratings = $sumratings + $row[2];
         $i = $i + 1;
     }
     $norows = $i;
@@ -97,7 +99,7 @@ try {
     header("Location: /error.php");
 }
 
-if ( $norows > 0 ) {
+if ( $sumratings > 0 ) {
     // Sort by ranking total descending
     usort($names, function ($a, $b) {
         return -($a['total'] - $b['total']);
