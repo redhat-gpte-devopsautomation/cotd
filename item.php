@@ -47,6 +47,7 @@ if ( isset( $rating ) ) {
 // Write item ratings to php log whenever ratings are changed
 if ( isset( $favorite ) ) {
 
+    $clientip = $_SERVER['HTTP_CLIENT_IP']?$_SERVER['HTTP_CLIENT_IP']:($_SERVER['HTTP_X_FORWARDE‌​D_FOR']?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR']);
 	$_SESSION['name'] = $_SESSION['item'][$itemno]['name'];
 	$_SESSION['rating'] = $_SESSION['item'][$itemno]['rating'];
 	include('include/insertratings.php');
@@ -62,7 +63,7 @@ if ( isset( $favorite ) ) {
     	}
   	}
 	$logmsg = $logmsg.'] ,';
-	$logmsg = $logmsg.' "client_ip" : "' .get_client_ip(). '", ';
+	$logmsg = $logmsg.' "client_ip" : "' .$clientip. '", ';
 	$logmsg = $logmsg.' "sydney_time" : "' .$localtime. '", ';
 	$logmsg = $logmsg.' } </'.$_SESSION['app'].'>';
 	error_log($logmsg);
