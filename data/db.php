@@ -17,33 +17,6 @@ $mysql_username = $_SESSION['DBUSER'];
 $mysql_dbname   = $_SESSION['DBNAME'];
 $mysql_password = $_SESSION['DBPASSWORD'];
 
-// Insert a hits record
-try {
-    $dbh = new PDO("mysql:host=$mysql_hostname;port=$mysql_port;dbname=$mysql_dbname", $mysql_username, $mysql_password);
-    $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $stmt = $dbh -> prepare("
-    INSERT INTO hits
-    (sessionid, theme, clientip) 
-    VALUES
-    (:sessionid, :theme, :clientip);
-    ");
-
-    $sessionid = session_id();
-    $theme = $_SESSION['SELECTOR'];
-    $clientip = $_SERVER['HTTP_CLIENT_IP']?$_SERVER['HTTP_CLIENT_IP']:($_SERVER['HTTP_X_FORWARDE‌​D_FOR']?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR']);
-
-    $stmt -> bindParam(':theme', $theme, PDO::PARAM_STR);
-    $stmt -> bindParam(':sessionid', $sessionid, PDO::PARAM_STR);
-    $stmt -> bindParam(':clientip', $clientip, PDO::PARAM_STR);
-    $stmt->execute();
-  
-} catch(Exception $e) {
-    $_SESSION['message'] = "Failed to insert hits. ".$e;
-    header('Location: /error.php');
-    die();
-}
-
 // Calculate aggregated ratings
 try {
     $dbh = new PDO("mysql:host=$mysql_hostname;port=$mysql_port;dbname=$mysql_dbname", $mysql_username, $mysql_password);

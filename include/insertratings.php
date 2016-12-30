@@ -40,6 +40,7 @@ try {
 
 } catch(Exception $e) {
    $_SESSION['message'] = 'We are unable to save your rating. Please try again later. '.$e;
-   header("Location: error.php");
+   header("Location: /error.php");
+   die();
 }
 ?>

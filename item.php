@@ -21,26 +21,6 @@ function getRandomWord($len = 10) {
 	return(session_id());
 }
 
-// Function to get the client IP address
-function get_client_ip() {
-    $ipaddress = '';
-    if (getenv('HTTP_CLIENT_IP'))
-        $ipaddress = getenv('HTTP_CLIENT_IP');
-    else if(getenv('HTTP_X_FORWARDED_FOR'))
-        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-    else if(getenv('HTTP_X_FORWARDED'))
-        $ipaddress = getenv('HTTP_X_FORWARDED');
-    else if(getenv('HTTP_FORWARDED_FOR'))
-        $ipaddress = getenv('HTTP_FORWARDED_FOR');
-    else if(getenv('HTTP_FORWARDED'))
-       $ipaddress = getenv('HTTP_FORWARDED');
-    else if(getenv('REMOTE_ADDR'))
-        $ipaddress = getenv('REMOTE_ADDR');
-    else
-        $ipaddress = 'UNKNOWN';
-    return $ipaddress;
-}
-
 parse_str($_SERVER['QUERY_STRING']);
 
 if ( isset($nextpage) ) { 
@@ -49,6 +29,7 @@ if ( isset($nextpage) ) {
 else { 
 	$item = $_SESSION['topitem'];
 }
+$_SESSION['name'] = $item;
 
 // Get index of current item
 $itemno = 0;
@@ -167,7 +148,10 @@ cache: false
 
 		<div id="trivia" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="b">
         	<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-					<?php echo $_SESSION['item'][$itemno]['trivia']; ?>
+				<?php 
+					include('include/inserthits.php');
+					echo $_SESSION['item'][$itemno]['trivia']; 
+				?>
         </div>
 
 	</div><!-- /content -->
