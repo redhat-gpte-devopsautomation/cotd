@@ -27,7 +27,10 @@ if ( isset($nextpage) ) {
 	$item = $nextpage;
 } 
 else { 
-	$item = $_SESSION['topitem'];
+	// Grab a random page to start with
+	$noitems = sizeof($_SESSION['item']);
+	$item = rand(1, $noitems) - 1;
+	// $item = $_SESSION['topitem'];
 }
 $_SESSION['name'] = $item;
 
