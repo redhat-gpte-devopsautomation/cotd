@@ -29,7 +29,8 @@ if ( isset($nextpage) ) {
 else { 
 	// Grab a random page to start with
 	$noitems = sizeof($_SESSION['item']);
-	$item = rand(1, $noitems) - 1;
+	$itemno = rand(1, $noitems) - 1;
+	$item = $_SESSION['item'][$itemno]['name'];
 	// $item = $_SESSION['topitem'];
 }
 $_SESSION['name'] = $item;
