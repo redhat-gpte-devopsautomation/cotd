@@ -135,7 +135,7 @@ $i = 17;
 $_SESSION['item'][$i]['name'] = 'charleybilly';
 $_SESSION['item'][$i]['caption'] = 'Charley+Billy'; 
 $_SESSION['item'][$i]['rank'] = 18; 
-$_SESSION['item'][$i]['trivia'] = "Hi, my name is Charley+Billy. Help us. We are being manipulated into some kind of cuteness standoff. But The Cavaliers united will never be defeated. Like us and save our dignity.";
+$_SESSION['item'][$i]['trivia'] = "Hi, our names are Charley and Billy. Help us. We are being manipulated into some kind of cuteness standoff. But The Cavaliers united will never be defeated. Like us and save our dignity.";
 $_SESSION['item'][$i]['filename'] = 'data/images/pets/charleybilly.jpg';
 
 $i = 18;
