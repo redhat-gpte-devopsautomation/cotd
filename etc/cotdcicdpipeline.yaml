@@ -22,20 +22,21 @@ spec:
   strategy:
     type: JenkinsPipeline
     jenkinsPipelineStrategy:
-      jenkinsfile: "node('maven') {\n\
-      \nstage '==> Build&Deploy-In-Development'\n\ 
-      \nopenshiftBuild(namespace: 'development', buildConfig: 'cats', showBuildLogs: 'true', waitTime: '300000')\
-      \nstage '==> Verify-In-Development'\n\
-      \nopenshiftVerifyDeployment(namespace: 'development', deploymentConfig: 'cats', replicaCount: '1')\
-      \n\nstage '==> Tag-Image-in-Development'\n\
-      \nopenshiftTag(namespace: 'development', sourceStream: 'cats', sourceTag: 'latest', destinationStream: 'cats', destinationTag: 'promoteQA')\
-      \n\nstage '==> Deploy-In-Testing' \n\
-      \nopenshiftDeploy(namespace: 'testing', deploymentConfig: 'cats', waitTime: '300000')\
-      \n\nstage '==> Scale-In-Testing' \n\
-      \nopenshiftScale(namespace: 'testing', deploymentConfig: 'cats', replicaCount: '2', waitTime: '300000')\
-      \nstage '==> Verify-In-Testing'\n\
-      \nopenshiftVerifyDeployment(namespace: 'testing', deploymentConfig: 'cats', replicaCount: '2')\
-      \n\n}\n"
+      jenkinsfile: 
+          "node('maven') {\n\
+         \n  stage '==> Build&Deploy-In-Development'\n\ 
+         \n  openshiftBuild(namespace: 'development', buildConfig: 'cats', showBuildLogs: 'true', waitTime: '300000')\
+         \n  stage '==> Verify-In-Development'\n\
+         \n  openshiftVerifyDeployment(namespace: 'development', deploymentConfig: 'cats', replicaCount: '1')\
+       \n\n  stage '==> Tag-Image-in-Development'\n\
+         \n  openshiftTag(namespace: 'development', sourceStream: 'cats', sourceTag: 'latest', destinationStream: 'cats', destinationTag: 'promoteQA')\
+       \n\n  stage '==> Deploy-In-Testing' \n\
+         \n  openshiftDeploy(namespace: 'testing', deploymentConfig: 'cats', waitTime: '300000')\
+       \n\n  stage '==> Scale-In-Testing' \n\
+         \n  openshiftScale(namespace: 'testing', deploymentConfig: 'cats', replicaCount: '2', waitTime: '300000')\
+         \n  stage '==> Verify-In-Testing'\n\
+         \n  openshiftVerifyDeployment(namespace: 'testing', deploymentConfig: 'cats', replicaCount: '2')\
+       \n\n}\n"
   output:
   resources:
   postCommit:
