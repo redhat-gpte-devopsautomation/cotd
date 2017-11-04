@@ -98,12 +98,4 @@ spec:
         backend:
           serviceName: cities
           servicePort: 8080
-      - path: /cats
-        backend:
-          serviceName: cats
-          servicePort: 8080
-      - path: /cities
-        backend:
-          serviceName: cities
-          servicePort: 8080
 ---
