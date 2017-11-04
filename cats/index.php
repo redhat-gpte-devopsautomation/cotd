@@ -10,6 +10,6 @@ Date: 2016
 session_start();
 include('include/selector.php');
 
-header( 'Location: item.php' );
+header( 'Location: cats/item.php' );
 
 ?>
