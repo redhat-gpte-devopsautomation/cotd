@@ -1,0 +1,40 @@
+apiVersion: config.istio.io/v1alpha2
+kind: RouteRule
+metadata:
+  name: rewrite-cats
+  namespace: cotd
+spec:
+  destination:
+    name: cats
+    namespace: cotd
+  match:
+    request:
+      headers:
+        uri:
+          prefix: /cats
+  rewrite:
+    uri: /cats/
+  route:
+  - labels:
+      version: v1
+---
+apiVersion: config.istio.io/v1alpha2
+kind: RouteRule
+metadata:
+  name: rewrite-cities
+  namespace: cotd
+spec:
+  destination:
+    name: cities
+    namespace: cotd
+  match:
+    request:
+      headers:
+        uri:
+          prefix: /cities
+  rewrite:
+    uri: /cities/
+  route:
+  - labels:
+      version: v1
+---
