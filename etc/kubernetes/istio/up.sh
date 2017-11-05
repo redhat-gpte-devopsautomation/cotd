@@ -11,4 +11,6 @@ sudo mv /root/.minikube $HOME/.minikube # this will write over any previous conf
 sudo chown -R $USER $HOME/.minikube
 sudo chgrp -R $USER $HOME/.minikube
 
+minikube status
 export CHANGE_MINIKUBE_NONE_USER=true
+kubectl api-versions | grep admissionregistration
