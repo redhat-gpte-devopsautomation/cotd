@@ -1,0 +1,101 @@
+
+# cotd Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cotd
+---
+
+# cats Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: cats
+  labels:
+    app: cats
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: cats
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cats-v1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cats
+        version: v1
+    spec:
+      containers:
+      - name: pets
+        image: stefanopicozzi/cotd
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+
+# Cities Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: cities
+  labels:
+    app: cities
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: cities
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cities-v1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cities
+        version: v1
+    spec:
+      containers:
+      - name: cities
+        image: stefanopicozzi/cotd
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        env:
+        - name: SELECTOR
+          value: cities
+---
+
+# Ingress Resource (gateway)
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gateway
+  annotations:
+    kubernetes.io/ingress.class: "istio"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /cats/.*
+        backend:
+          serviceName: cats
+          servicePort: 8080
+      - path: /cities/.*
+        backend:
+          serviceName: cities
+          servicePort: 8080
+---

@@ -72,7 +72,7 @@ $i = 8;
 $_SESSION['item'][$i]['name'] = 'snuggles';
 $_SESSION['item'][$i]['caption'] = 'Snuggles'; 
 $_SESSION['item'][$i]['rank'] = 9;
-$_SESSION['item'][$i]['trivia'] = "Hi, my name is Snuggles. Hi, my name is Snuggles. I just completed a course in Critical Thinking. The term paper was 140 characters long. Next week I'm doing a PhD in Public Policy. Like me on Twitter.";
+$_SESSION['item'][$i]['trivia'] = "Hi, my name is Snuggles. I just completed a course in Critical Thinking. The term paper was 140 characters long. Next week I'm doing a PhD in Public Policy. Like me on Twitter.";
 $_SESSION['item'][$i]['filename'] = 'data/images/pets/snuggles.jpg';
 
 $i = 9;
@@ -135,7 +135,7 @@ $i = 17;
 $_SESSION['item'][$i]['name'] = 'charleybilly';
 $_SESSION['item'][$i]['caption'] = 'Charley+Billy'; 
 $_SESSION['item'][$i]['rank'] = 18; 
-$_SESSION['item'][$i]['trivia'] = "Hi, my name is Charley+Billy. Help us. We are being manipulated into some kind of cuteness standoff. But The Cavaliers united will never be defeated. Like me and save our dignity.";
+$_SESSION['item'][$i]['trivia'] = "Hi, our names are Charley and Billy. Help us. We are being manipulated into some kind of cuteness standoff. But The Cavaliers united will never be defeated. Like us and save our dignity.";
 $_SESSION['item'][$i]['filename'] = 'data/images/pets/charleybilly.jpg';
 
 $i = 18;
